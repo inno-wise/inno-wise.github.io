@@ -31,13 +31,29 @@ h1 {
 }
 
 nav {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav a {
-  margin: 10px;
+    text-decoration: underline double lime;
+    color: #000;
+    padding: 10px;
+    font-family: cursive;
+    background-size: cover;
+    background: linear-gradient(to top, #d57512, #ffe420);
+    background-position: center;
+    margin: 7px;
+    width: 100%;
+    text-align: center;
+}
+
+nav a:hover {
+   color: teal; /* Hover color */
+  background: linear-gradient(to right, blue, red); /* Optional hover background color */
   text-decoration: none;
-  color: black;
+  transition: text-decoration 0.8s ease-in-out; /* Smooth transition */
 }
 
 main {
