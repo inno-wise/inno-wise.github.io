@@ -240,6 +240,24 @@ button[type="submit"]::after {
   border-color: transparent transparent #fff transparent; /* Creates a white arrow pointing right */
 }
 
+  /*slanted border*/
+  .slanted-border {
+  width: 200px;
+  height: 100px;
+  position: relative; /* Needed for absolute positioning */
+}
+
+.slanted-border::after {
+  content: "";
+  position: absolute;
+  bottom: -20px; /* Adjust for border width and desired slant angle */
+  left: 0;
+  width: 100%;
+  border-style: solid;
+  border-width: 0 200px 20px 0; /* Bottom border = 0, slanted side = width */
+  border-color: transparent rgba(0, 0, 0, 0.4) transparent transparent;
+}
+
 </style>
 </head>
 <body>
@@ -267,7 +285,9 @@ button[type="submit"]::after {
 </section>
 <!--  ...............   section 2 ................. -->
 <section class="sect2">
+  <div class="slanted-border">
   <h2 class="headingg">THE NAIROBI WEST  HOSPITAL COLLEGE OF HEALTH SCIENCE</h2>
+  </div>
   <form id="myForm">
 
     <!-- ........... action="/submit_form.php" method="post" ..... -->
