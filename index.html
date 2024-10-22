@@ -1,421 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>College of Health Science</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College of Health Science</title>
     <link rel="icon" type="image/x-icon" href="nn.jpg">
-  <meta name="health science school " content="A website about medical science space"> 
-<style>
+    <meta name="description" content="A website about medical science space">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: cursive;
+            background-image: url("nn.jpg");
+            background-color: wheat;
+            margin: 0;
+            color: lime;
+            padding: 20px;
+        }
 
-/*   ................................  section 2 ........................ */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+        }
 
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            color: Black;
+        }
 
-body {
-  font-family: cursive;
-  background-size:  180%;
-  background-image: url("nn.jpg");
-  background-color: wheat;
-  background-position: center;
-  margin: 0;
-color: lime;
-  padding: 20px;
-  display: grid; /* Center the container horizontally */
-  justify-content: space-around; /* Center the container horizontally */
-  align-items: center; /* Center the container vertically */
-  min-height: 100vh; /* Set minimum height for full viewport */
-}
+        button[type="submit"] {
+            background: #ff840a;
+            color: wheat;
+            padding: 14px 27px;
+            border: 0;
+            border-radius: 28px;
+            position: relative;
+            overflow: hidden;
+        }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: white;
-}
+        button[type="submit"]::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            border-width: 0 5px 5px 0;
+            border-style: solid;
+            border-color: transparent transparent #fff transparent;
+        }
 
-.container {
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  padding: 30px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
-  max-width: 500px; /* Limit container width */
-  color: Black; /* Adjust text color for visibility */
-}
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: white;
+            padding: 20px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-top: 1px solid #ccc;
+        }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input[type="email"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: transparent; /* Transparent input background */
-  color: green; /* Adjust text color for visibility */
-}
-
-input[type="text"] {
-width: 80%;
-    padding: 3px;
-    border-top: transparent;
-    margin: 6px auto;
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    border: 5px solid #c7a440;
-    border-radius: 55px;
-    box-sizing: border-box;
-    background-color: #4bc95100;
-    color: green;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
-}
-
-/*.....hooover......*/
-
-input[type="text"]:hover {
-   color: white; /* Hover color */
-   font-size: 16px;
-   background: #a52a2a;  /*linear-gradient(to right, lightcoral, coral); Optional hover background color */
-  text-decoration: none;
-  transition: text-decoration 0.8s ease-in-out; /* Smooth transition */
-}
-
-input[type="email"]:hover {
-   color: white; /* Hover color */
-   font-size: 14px;
-   background :#996633;
-text-decoration: none;
-  transition: text-decoration 0.8s ease-in-out; /* Smooth transition */
-}
-
-textarea:hover {
-   color: white; /* Hover color */
-   background: #a52a2a;/* linear-gradient(to right, #996633, #996633);  Optional hover background color */
-  text-decoration: none;
-  font-size: 15px;
-  transition: text-decoration 0.8s ease-in-out; /* Smooth transition */
-}
-
-/*....hooover.......*/
-
-textarea {
-  resize: none;
-}
-
-.error-message {
-  color: red;
-  font-weight: bold;
-  display: none;
-  margin-top: 5px; /* Add spacing above error message */
-}
-
-.form-group.error {
-  border: 1px solid red;
-  animation: shake 0.5s ease-in-out;
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-5px); }
-  40%, 80% { transform: translateX(10px); }
-}
-
-button[type="submit"] {
-    background: #ff840a;
-    color: wheat;
-    padding: 14px 27px;
-    border: 10px;
-    border-radius: 28px;
-}
-
-.sect2{
-linear-gradient(to right, #15ffe11c, #0802024d);
- border: 2px solid #d5b027;
-  border-radius: 488px; /* Rounded corners with 10px radius */
-padding: 102px;
-}
-
-.headingg {
-  color: #b8ff3f;
-  position: relative; /* Make the paragraph position relative */
-    font-style: oblique;
-    font-optical-sizing: inherit;
-    font-family: cursive;
-    font-size: xx-large;
-     border: 5px solid #007bff; /* Blue solid border, 5px width */
-    border-radius: 10px; /* Rounded corners with 10px radius */
-}
-  
-.headingg ::before {
-  content: "Background Text"; /* Set the content of the pseudo-element */
-  color: yellow; /* Set the background text color */
-  position: left; /* Make the pseudo-element absolute */
-  top: 0; /* Position it at the top of the paragraph */
-  left: 0; /* Position it at the left of the paragraph */
-  z-index: -1; /* Place it behind the actual text content */
-}
-
-/*  ..................   section 1 ................. */
-
-}
-
-header {
-  background-color: #f0f0f0;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ccc;
-}
-
-h1 {
-  text-align: center;
-  margin: 0;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav a {
-    text-decoration: underline double lime;
-    color: #000;
-    padding: 10px;
-    font-family: cursive;
-    background-size: cover;
-    background: linear-gradient(to top, #d57512, #ffe420);
-    background-position: center;
-    margin: 7px;
-    width: 100%;
-    text-align: center;
-}
-
-nav a:hover {
-   color: teal; /* Hover color */
-  background: linear-gradient(to right, blue, red); /* Optional hover background color */
-  text-decoration: none;
-  transition: text-decoration 0.8s ease-in-out; /* Smooth transition */
-}
-
-#search-bar {
-  display: none; /* Initially hidden */
-}
-
-#search-input {
-  padding: 5px;
-  border: 1px solid #ccc;
-}
-
-#search-button {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-*...................addition...styles..................................*/
-p{
-color: white;
-}
-button[type="submit"] {
-  /* Style your button here (background, color, padding, etc.) */
-  position: relative; /* Needed for pseudo-element positioning */
-  overflow: hidden; /* Prevent content overflow due to pseudo-element */
-}
-
-button[type="submit"]::after {
-  content: ""; /* Removes default content */
-  position: absolute;
-  top: 50%;
-  right: 10px; /* Adjust for arrow positioning within the button */
-  transform: translateY(-50%); /* Vertically center the arrow */
-  border-width: 0 5px 5px 0; /* Defines the arrow shape using borders */
-  border-style: solid;
-  border-color: transparent transparent #fff transparent; /* Creates a white arrow pointing right */
-}
-
-
-
-</style>
+        .section {
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- ..................    section 1............  -->
-
-<section class="sect1">
+<!-- Navigation -->
 <header>
-  <nav>
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="index.html">Contact</a>
-<br>
-    <div id="search-bar">
-      <input type="text" placeholder="Search..." id="search-input">
-      <button id="search-button">Search</button>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Health Science</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 </header>
-<br>
-<main>
-  <pre>Welcome to Notyflied</pre>
+
+<main class="container my-5">
+    <h2 class="headingg">COLLEGE OF HEALTH SCIENCE</h2>
+
+    <section class="section">
+        <form id="myForm">
+            <div class="form-group">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="firstname" class="form-control" placeholder="Your first name.." required>
+                <span class="error-message text-danger" style="display:none;"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lastname" class="form-control" placeholder="Your last name.." required>
+                <span class="error-message text-danger" style="display:none;"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Your email.." required>
+                <span class="error-message text-danger" style="display:none;"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div id="submission-response" class="mt-3"></div>
+        </form>
+    </section>
+
+    <section class="section">
+        <h3 class="text-center text-white">Endless Content about Medicine</h3>
+        <p class="text-white">Welcome to the College of Health Science! Our mission is to provide high-quality education and training in the medical field. We believe that knowledge is the foundation of good health, and our courses are designed to empower students with the necessary skills and expertise.</p>
+        
+        <p class="text-white">Our faculty comprises experienced professionals and experts in various medical fields. They are dedicated to nurturing the next generation of healthcare providers. From nursing to pharmacy, we offer diverse programs that cater to the evolving needs of the healthcare sector.</p>
+        
+        <p class="text-white">Additionally, our institution emphasizes research and innovation in medicine. Students are encouraged to engage in research projects that contribute to advancements in healthcare practices. We also collaborate with local hospitals and clinics to provide hands-on training and real-world experience.</p>
+
+        <p class="text-white">We offer workshops, seminars, and guest lectures to further enrich our students' learning experiences. Join us in our commitment to improving health and well-being in our community and beyond.</p>
+
+        <p class="text-white">For more information about our programs and enrollment, please feel free to reach out to us through the contact form above or visit our campus.</p>
+    </section>
+
+    <!-- Suggestions for Further Development -->
+     <!--
+    <section class="section">
+        <h3 class="text-center text-white">Suggestions for Further Development</h3>
+        <ul class="text-white">
+            <li><strong>Backend Integration:</strong> Consider adding backend functionality to handle form submissions and store data securely.</li>
+            <li><strong>Additional Content:</strong> Continuously expand the medical content section with articles, news, and research findings.</li>
+            <li><strong>Accessibility Features:</strong> Ensure the site is accessible to all users, including those with disabilities, by following best practices in web design.</li>
+        </ul>
+    </section>
+-->
+    <!-- Key Additions -->
+     <!-- 
+    <section class="section">
+        <h3 class="text-center text-white">Key Additions</h3>
+        <ul class="text-white">
+            <li><strong>Suggestions for Further Development Section:</strong> A new section at the end provides clear suggestions for enhancing the website, making it easier for future developers or stakeholders to see areas for improvement.</li>
+            <li><strong>Bullet Points:</strong> Suggestions are presented as a bulleted list for better readability.</li>
+            <li><strong>Consistent Styling:</strong> Maintained consistent text color and styling to ensure professionalism throughout the document.</li>
+        </ul>
+    </section>
+  -->
 </main>
-</section>
-<!--  ...............   section 2 ................. -->
-<section class="sect2">
-  <h2 class="headingg">THE NAIROBI WEST  HOSPITAL COLLEGE OF HEALTH SCIENCE</h2>
- 
-  <form id="myForm">
 
-    <!-- ........... action="/submit_form.php" method="post" ..... -->
+<footer>
+    <p>&copy; 2024 Innocent Wise. All Rights Reserved.</p>
+    <p>Developed with a commitment to excellence in education and healthcare.</p>
+</footer>
 
-    <div class="form-group">
-      <label for="fname">First Name:</label>
-      <input type="text" id="fname" name="firstname" placeholder="Your first name.." required>
-      <span class="error-message"></span>
-    <br>
-    <div class="form-group">
-      <label for="lname">Last Name:</label>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
-      <span class="error-message"></span>
-</div>   
- </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Your email.." required>
-      <span class="error-message"></span>
-    </div>
-    <!--<div class="form-group">
-      <label for="subject">Subject:</label>
-      <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
-      <span class="error-message"></span>
-    </div><textarea id="message" name="message" required></textarea>-->
-    <button type="submit">Submit</button>
-  <div id="submission-response"></div>
-  </form>
-</section>
-  <footer>
-    <p>&copy; innocent mwea 2024 </p>
-  </footer>
 <script>
-const form = document.getElementById('contactForm');
-const errorMessages = document.querySelectorAll('.error-message');
+    const form = document.getElementById('myForm');
+    const errorMessages = document.querySelectorAll('.error-message');
 
-form.addEventListener('submit', (event) => {
-  let hasErrors = false;
+    form.addEventListener('submit', (event) => {
+        let hasErrors = false;
 
-  // Clear any previous error messages
-  errorMessages.forEach(message => message.style.display = 'none');
-  form.classList.remove('error');
+        // Clear previous error messages
+        errorMessages.forEach(message => message.style.display = 'none');
+        
+        const firstName = document.getElementById('fname');
+        const lastName = document.getElementById('lname');
+        const email = document.getElementById('email');
 
-  const firstName = document.getElementById('fname');
-  const lastName = document.getElementById('lname');
-  const email = document.getElementById('email');
-  const subject = document.getElementById('subject');
+        // Validation checks
+        if (firstName.value.trim() === "") {
+            hasErrors = true;
+            errorMessage(firstName, "Please enter your first name.");
+        }
 
-  // Validation checks
-  if (firstName.value === "") {
-    hasErrors = true;
-    errorMessage(firstName, "Please enter your first name.");
-  } else if (firstName.value.length < 2) {
-    hasErrors = true;
-    errorMessage(firstName, "First name must be at least 2 characters.");
-  }
+        if (lastName.value.trim() === "") {
+            hasErrors = true;
+            errorMessage(lastName, "Please enter your last name.");
+        }
 
-  if (lastName.value === "") {
-    hasErrors = true;
-    errorMessage(lastName, "Please enter your last name.");
-  } else if (lastName.value.length < 2) {
-    hasErrors = true;
-    errorMessage(lastName, "Last name must be at least 2 characters.");
-  }
+        if (email.value.trim() === "") {
+            hasErrors = true;
+            errorMessage(email, "Please enter your email address.");
+        } else if (!validateEmail(email.value)) {
+            hasErrors = true;
+            errorMessage(email, "Please enter a valid email address.");
+        }
 
-  if (email.value === "") {
-    hasErrors = true;
-    errorMessage(email, "Please enter your email address.");
-  } else if (!validateEmail(email.value)) {
-    hasErrors = true;
-    errorMessage(email, "Please enter a valid email address.");
-  }
+        if (hasErrors) {
+            event.preventDefault();
+        } else {
+            // Simulate successful submission
+            document.getElementById('submission-response').textContent = "Thank you for your submission!";
+            form.reset();
+        }
+    });
 
-  if (subject.value === "") {
-    hasErrors = true;
-    errorMessage(subject, "Please enter a subject for your message.");
-  }
+    function errorMessage(inputElement, message) {
+        inputElement.nextElementSibling.textContent = message;
+        inputElement.nextElementSibling.style.display = 'inline';
+    }
 
-  if (hasErrors) {
-    event.preventDefault();
-    form.classList.add('error');  // Add error class for styling
-  } else {
-    // Successful form submission (replace with your desired action)
-    alert("Thank you for contacting us! Your message has been sent.");
-  }
-});
-
-function errorMessage(inputElement, message) {
-  inputElement.nextElementSibling.textContent = message;
-  inputElement.nextElementSibling.style.display = 'inline';
-}
-
-//....................
-const searchButton = document.getElementById('search-button');
-const searchBar = document.getElementById('search-bar');
-
-searchButton.addEventListener('click', () => {
-  searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
-});
-
-const form = document.getElementById('contactForm');
-const errorMessages = document.querySelectorAll('.error-message');
-
-form.addEventListener('submit', (event) => {
-  let hasErrors = false;
-
-  // Clear any previous error messages
-  errorMessages.forEach(message => message.style.display = 'none');
-  form.classList.remove('error');
-
-  const firstName = document.getElementById('fname');
-  const lastName = document.getElementById('lname');
-  const email = document.getElementById('email');
-  const subject = document.getElementById('subject');
-
-  // Validation checks (same as before)
-
-  if (hasErrors) {
-    event.preventDefault();
-    form.classList.add('error');
-  } else {
-    // Successful form submission (redirect using window.location)
-    alert("Thank you for contacting us! Your message has been sent.");
-    window.location.href = "success.html";  // Replace with your desired success page URL
-  }
-});
-
-// ... other functions (errorMessage, validateEmail)
-
-const form = document.getElementById('myForm');
-const submissionResponse = document.getElementById('submission-response');
-
-form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent default form submission
-
-  // Simulate form processing (replace with your actual processing logic)
-  const message = document.getElementById('message').value;
-  const response = "Thank you for your message: " + message;
-
-  // Add the response content to the designated container
-  submissionResponse.textContent = response;
-});
-
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
 </script>
 </body>
 </html>
