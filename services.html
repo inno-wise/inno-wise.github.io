@@ -1,195 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="nn.jpg">
-  <meta name="description" content="A website about medical science space"> 
-  <title>My School Portfolio - Services</title>
-  <link rel="stylesheet" href="style.css">
-<style>
-body {
-  font-family: cursive;
-  background-size:  180%;
-  background-image: url("nn.jpg");
-  background-color: wheat;
-  background-position: center;
-  margin: 0;
-color: lime;
-  padding: 20px;
-  display: grid; /* Center the container horizontally */
-  justify-content: space-around; /* Center the container horizontally */
-  align-items: center; /* Center the container vertically */
-  min-height: 100vh; /* Set minimum height for full viewport */
-}
+    <meta name="description" content="A website about medical science space"> 
+    <title>My School Portfolio - Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: cursive;
+            background-image: url("nn.jpg");
+            background-size: cover;
+            background-color: wheat;
+            color: lime;
+            padding: 20px;
+        }
 
-header {
-  background-color: transparent;
-  padding: 20px;
-}
+        header {
+            background-color: transparent;
+            padding: 20px;
+        }
 
-h1 {
-  text-align: center;
-}
+        h1 {
+            text-align: center;
+        }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+        nav a {
+            text-decoration: underline double lime;
+            color: #000;
+            padding: 10px;
+            font-family: cursive;
+            background: linear-gradient(to top, #d57512, #ffe420);
+            margin: 7px;
+            text-align: center;
+        }
 
-nav a {
-    text-decoration: underline double lime;
-    color: #000;
-    padding: 10px;
-    font-family: cursive;
-    background-size: cover;
-    background: linear-gradient(to top, #d57512, #ffe420);
-    background-position: center;
-    margin: 7px;
-    width: 100%;
-    text-align: center;
-}
+        nav a:hover {
+            color: teal;
+            background: linear-gradient(to right, blue, red);
+            text-decoration: none;
+            transition: text-decoration 0.8s ease-in-out;
+        }
 
-nav a:hover {
-   color: teal; /* Hover color */
-  background: linear-gradient(to right, blue, red); /* Optional hover background color */
-  text-decoration: none;
-  transition: text-decoration 0.8s ease-in-out; /* Smooth transition */
-}
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
 
-main {
-  padding: 20px;
-}
+        .service {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+            width: 30%;
+        }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+        .service h3 {
+            margin-bottom: 10px;
+        }
 
-.services-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+        .service button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-.service {
-  width: 30%;
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
+        .service button:hover {
+            background-color: #3e8e41;
+        }
 
-.service h3 {
-  margin-bottom: 10px;
-}
-
-.service button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.service button:hover {
-  background-color: #3e8e41;
-}
-
-/* Optional styles for details section (hidden by default) */
-.details {
-  display: none;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.details p {
-  margin-bottom: 10px;
-}
-
-/*................nav settings...................*/
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav a {
-  text-decoration: overline double red;
-  color: #000;
-  padding: 10px;
-  font-family: Arial, sans-serif;
-  background-size: cover;
-  background: linear-gradient(to right, skyblue, #e0e0e0);
-  background-position: center;
-  margin: 10;
-  width: 100%;
-  text-align: center;
-}
-
-nav a:hover {
-   color: teal; /* Hover color */
-  background: linear-gradient(to right, blue, red); /* Optional hover background color */
-  text-decoration: none;
-  transition: text-decoration 0.8s ease-in-out; /* Smooth transition */
-}
-
-</style>
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="services.html">Services</a>
-      <a href="index.html">Contact</a>
-    </nav>
-  </header>
-<br>
-  <main>
-    <h2>Services I Offer</h2>
-     <hr>
-<br>
-    <section class="services-container">
-      <div class="service">
-        <h3>Web Development</h3>
-        <p>I can create websites of all types, from simple landing pages to complex interactive experiences. I'm proficient in HTML, CSS, and JavaScript.</p>
-        <button onclick="showDetails('web-dev')">Learn More</button>
-      </div>
-      <div class="service">
-        <h3>Graphic Design</h3>
-        <p>I can create eye-catching visuals for your projects, including logos, posters, and social media graphics. I use software like Adobe Photoshop and Illustrator.</p>
-        <button onclick="showDetails('graphic-design')">Learn More</button>
-      </div>
-      <div class="service">
-        <h3>Video Editing</h3>
-        <p>I can edit and enhance your videos to make them more engaging and impactful. I use software like Adobe Premiere Pro.</p>
-        <button onclick="showDetails('video-editing')">Learn More</button>
-      </div>
-    </section>
-  </main>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">My Portfolio</a>
+            <div class="collapse navbar-collapse">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="home.html">Home</a>
+                    <a class="nav-item nav-link" href="about.html">About Me</a>
+                    <a class="nav-item nav-link" href="services.html">Services</a>
+                    <a class="nav-item nav-link" href="index.html">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-  <footer>
-    <p>&copy; innocent mwea 2024 </p>
-  </footer>
+    <main class="container">
+        <h2 class="text-center">Services I Offer</h2>
+        <hr>
+        <section class="services-container">
+            <div class="service">
+                <h3>Web Development</h3>
+                <p>I can create websites of all types, from simple landing pages to complex interactive experiences. I'm proficient in HTML, CSS, and JavaScript.</p>
+                <button onclick="showDetails('web-dev')">Learn More</button>
+            </div>
+            <div class="service">
+                <h3>Graphic Design</h3>
+                <p>I can create eye-catching visuals for your projects, including logos, posters, and social media graphics. I use software like Adobe Photoshop and Illustrator.</p>
+                <button onclick="showDetails('graphic-design')">Learn More</button>
+            </div>
+            <div class="service">
+                <h3>Video Editing</h3>
+                <p>I can edit and enhance your videos to make them more engaging and impactful. I use software like Adobe Premiere Pro.</p>
+                <button onclick="showDetails('video-editing')">Learn More</button>
+            </div>
+        </section>
+    </main>
 
-  <script src="script.js">
-function showDetails(serviceName) {
-  // Hide all details sections first
-  const detailsSections = document.querySelectorAll('.details');
-  detailsSections.forEach(section => section.style.display = 'none');
+    <footer>
+        <p>&copy; Innocent Mwea 2024</p>
+    </footer>
 
-  // Find the details section for the clicked service
-  const serviceDetails = document.getElementById(`${serviceName}-details`);
-  if (serviceDetails) {
-    serviceDetails.style.display = 'block';
-  
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showDetails(serviceName) {
+            // Hide all details sections first
+            const detailsSections = document.querySelectorAll('.details');
+            detailsSections.forEach(section => section.style.display = 'none');
 
-</script>
+            // Find the details section for the clicked service
+            const serviceDetails = document.getElementById(`${serviceName}-details`);
+            if (serviceDetails) {
+                serviceDetails.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
