@@ -4,158 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="nn.jpg">
-    <meta name="description" content="A website about medical science space">
-    <title>Medical Science School</title>
-    <!-- Bootstrap CSS -->
+    <meta name="description" content="A website about medical science space"> 
+    <title>Medical Science School - Home</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: cursive;
-            background-image: url("nn.jpg");
-            background-size: cover;
-            background-color: wheat;
-            color: lime;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
         }
-        
         header {
+            background-color: #007bff;
             color: white;
             padding: 20px;
             text-align: center;
         }
-        
-        nav {
-            background-color: orange;
-            padding: 10px;
-        }
-
-        nav .head {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        nav li {
-            display: inline-block;
-            margin: 10px;
-        }
-
         nav a {
-            text-decoration: underline royalblue;
             color: white;
-            padding: 10px;
-            font-family: cursive, sans-serif;
-            margin: 0 auto;
+            margin: 0 15px;
         }
-
         nav a:hover {
-            color: teal;
-            background: linear-gradient(to right, skyblue, orange);
-            text-decoration: none;
-            transition: text-decoration 0.8s ease-in-out;
+            text-decoration: underline;
         }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .hero h2 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-
-        .about, .programs {
-            background: orange;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .about h3, .programs h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
         footer {
-            background-color: #f2f2f2;
-            padding: 10px;
+            background-color: #f8f9fa;
             text-align: center;
-        }
-
-        .divv {
-            color: #007bff;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Welcome to the Medical Science School</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">Home</a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="about.html">About</a>
+                <a class="nav-item nav-link" href="services.html">Services</a>
+                <a class="nav-item nav-link" href="contact.html">Contact Us</a>
+            </div>
+        </nav>
     </header>
-    
-    <nav>
-        <ul class="head">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="#">News & Events</a></li>
-            <li><a href="index.html">Contact Us</a></li>
-        </ul>
-    </nav>
-
-    <main class="container">
-        <section class="hero">
-            <h2>Shape the Future of Medicine</h2>
-            <p>Our medical science school offers a rigorous curriculum that will prepare you for a successful career in healthcare.</p>
-            <button class="btn btn-success" id="learnMoreButton">Learn More</button>
-        </section>
-        
-        <section class="about">
-            <h3>About Our School</h3>
-            <p>We are dedicated to providing our students with a comprehensive education in the field of medical science. Our faculty members are experts in their respective fields and are passionate about teaching the next generation of healthcare professionals.</p>
-        </section>
-        
-        <section class="programs">
-            <h3>Our Programs</h3>
-            <ul class="list-unstyled">
-                <li>Doctor of Medicine (MD)</li>
-                <li>Master of Science in Physician Assistant Studies (MPAS)</li>
-                <li>Master of Science in Nursing (MSN)</li>
-                <li>Bachelor of Science in Health Sciences (BSHS)</li>
-                <li>Doctor of Osteopathic Medicine (DO)</li>
-                <li>Physician Assistant (PA)</li>
-                <li>Nurse Practitioner (NP)</li>
-                <li>Anesthesiologist</li>
-                <li>Cardiologist</li>
-                <li>Dermatologist</li>
-                <li>Emergency Physician</li>
-                <li>Family Physician</li>
-                <li>Infectious Disease Physician</li>
-                <li>Neurologist</li>
-                <li>Obstetrician-Gynecologist (OB-GYN)</li>
-                <li>Ophthalmologist</li>
-                <li>Orthopedic Surgeon</li>
-                <li>Pathologist</li>
-                <li>Pediatrician</li>
-                <li>Psychiatrist</li>
-                <li>Radiologist</li>
-                <li>Surgeon</li>
-                <li>Urologist</li>
-            </ul>
-        </section>
+    <main class="container my-5">
+        <h2>Shape the Future of Medicine</h2>
+        <p>Our medical science school offers a rigorous curriculum that prepares you for a successful career in healthcare.</p>
     </main>
-
     <footer>
-        <p class="divv">&copy; Copyright 2024 Medical Science School | Developed by Innocent Mwea</p>
+        <p>&copy; 2024 Medical Science School</p>
     </footer>
-
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
