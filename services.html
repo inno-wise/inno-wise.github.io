@@ -5,140 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="nn.jpg">
     <meta name="description" content="A website about medical science space"> 
-    <title>My School Portfolio - Services</title>
-    <!-- Bootstrap CSS -->
+    <title>Medical Science School - Services</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: cursive;
-            background-image: url("nn.jpg");
-            background-size: cover;
-            background-color: wheat;
-            color: lime;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
         }
-
         header {
-            background-color: transparent;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        nav a {
-            text-decoration: underline double lime;
-            color: #000;
-            padding: 10px;
-            font-family: cursive;
-            background: linear-gradient(to top, #d57512, #ffe420);
-            margin: 7px;
-            text-align: center;
-        }
-
-        nav a:hover {
-            color: teal;
-            background: linear-gradient(to right, blue, red);
-            text-decoration: none;
-            transition: text-decoration 0.8s ease-in-out;
-        }
-
-        .services-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .service {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            padding: 20px;
-            width: 30%;
-        }
-
-        .service h3 {
-            margin-bottom: 10px;
-        }
-
-        .service button {
-            background-color: #4CAF50;
+            background-color: #007bff;
             color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .service button:hover {
-            background-color: #3e8e41;
-        }
-
-        footer {
-            text-align: center;
             padding: 20px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">My Portfolio</a>
-            <div class="collapse navbar-collapse">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="home.html">Home</a>
-                    <a class="nav-item nav-link" href="about.html">About Me</a>
-                    <a class="nav-item nav-link" href="services.html">Services</a>
-                    <a class="nav-item nav-link" href="index.html">Contact</a>
-                </div>
+        <h1>Our Services</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="home.html">Home</a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="about.html">About</a>
+                <a class="nav-item nav-link" href="services.html">Services</a>
+                <a class="nav-item nav-link" href="contact.html">Contact Us</a>
             </div>
         </nav>
     </header>
-
-    <main class="container">
-        <h2 class="text-center">Services I Offer</h2>
-        <hr>
+    <main class="container my-5">
+        <h2>Services I Offer</h2>
         <section class="services-container">
             <div class="service">
                 <h3>Web Development</h3>
-                <p>I can create websites of all types, from simple landing pages to complex interactive experiences. I'm proficient in HTML, CSS, and JavaScript.</p>
-                <button onclick="showDetails('web-dev')">Learn More</button>
+                <p>I can create websites of all types...</p>
             </div>
             <div class="service">
                 <h3>Graphic Design</h3>
-                <p>I can create eye-catching visuals for your projects, including logos, posters, and social media graphics. I use software like Adobe Photoshop and Illustrator.</p>
-                <button onclick="showDetails('graphic-design')">Learn More</button>
+                <p>I can create eye-catching visuals for your projects...</p>
             </div>
             <div class="service">
                 <h3>Video Editing</h3>
-                <p>I can edit and enhance your videos to make them more engaging and impactful. I use software like Adobe Premiere Pro.</p>
-                <button onclick="showDetails('video-editing')">Learn More</button>
+                <p>I can edit and enhance your videos...</p>
             </div>
         </section>
     </main>
-
     <footer>
-        <p>&copy; Innocent Mwea 2024</p>
+        <p>&copy; 2024 Medical Science School</p>
     </footer>
-
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        function showDetails(serviceName) {
-            // Hide all details sections first
-            const detailsSections = document.querySelectorAll('.details');
-            detailsSections.forEach(section => section.style.display = 'none');
-
-            // Find the details section for the clicked service
-            const serviceDetails = document.getElementById(`${serviceName}-details`);
-            if (serviceDetails) {
-                serviceDetails.style.display = 'block';
-            }
-        }
-    </script>
 </body>
 </html>
