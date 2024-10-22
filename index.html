@@ -11,16 +11,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            font-family: cursive;
-            background-image: url("nn.jpg");
-            background-color: wheat;
-            margin: 0;
-            color: lime;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
             padding: 20px;
+            text-align: center;
         }
 
         h2 {
-            text-align: center;
             margin-bottom: 20px;
             color: white;
         }
@@ -30,12 +33,12 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            color: Black;
+            color: white;
         }
 
         button[type="submit"] {
             background: #ff840a;
-            color: wheat;
+            color: white;
             padding: 14px 27px;
             border: 0;
             border-radius: 28px;
@@ -59,12 +62,20 @@
             margin-top: 20px;
             color: white;
             padding: 20px 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-top: 1px solid #ccc;
+            background-color: #007bff;
         }
 
         .section {
             margin-top: 40px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -72,7 +83,7 @@
 
 <!-- Navigation -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">Health Science</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
@@ -83,14 +94,14 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
 </header>
 
 <main class="container my-5">
-    <h2 class="headingg">COLLEGE OF HEALTH SCIENCE</h2>
+    <h2 class="text-center">COLLEGE OF HEALTH SCIENCE</h2>
 
     <section class="section">
         <form id="myForm">
@@ -118,40 +129,17 @@
     </section>
 
     <section class="section">
-        <h3 class="text-center text-white">Endless Content about Medicine</h3>
-        <p class="text-white">Welcome to the College of Health Science! Our mission is to provide high-quality education and training in the medical field. We believe that knowledge is the foundation of good health, and our courses are designed to empower students with the necessary skills and expertise.</p>
+        <h3 class="text-center">Endless Content about Medicine</h3>
+        <p>Welcome to the College of Health Science! Our mission is to provide high-quality education and training in the medical field. We believe that knowledge is the foundation of good health, and our courses are designed to empower students with the necessary skills and expertise.</p>
         
-        <p class="text-white">Our faculty comprises experienced professionals and experts in various medical fields. They are dedicated to nurturing the next generation of healthcare providers. From nursing to pharmacy, we offer diverse programs that cater to the evolving needs of the healthcare sector.</p>
+        <p>Our faculty comprises experienced professionals and experts in various medical fields. They are dedicated to nurturing the next generation of healthcare providers. From nursing to pharmacy, we offer diverse programs that cater to the evolving needs of the healthcare sector.</p>
         
-        <p class="text-white">Additionally, our institution emphasizes research and innovation in medicine. Students are encouraged to engage in research projects that contribute to advancements in healthcare practices. We also collaborate with local hospitals and clinics to provide hands-on training and real-world experience.</p>
+        <p>Additionally, our institution emphasizes research and innovation in medicine. Students are encouraged to engage in research projects that contribute to advancements in healthcare practices. We also collaborate with local hospitals and clinics to provide hands-on training and real-world experience.</p>
 
-        <p class="text-white">We offer workshops, seminars, and guest lectures to further enrich our students' learning experiences. Join us in our commitment to improving health and well-being in our community and beyond.</p>
+        <p>We offer workshops, seminars, and guest lectures to further enrich our students' learning experiences. Join us in our commitment to improving health and well-being in our community and beyond.</p>
 
-        <p class="text-white">For more information about our programs and enrollment, please feel free to reach out to us through the contact form above or visit our campus.</p>
+        <p>For more information about our programs and enrollment, please feel free to reach out to us through the contact form above or visit our campus.</p>
     </section>
-
-    <!-- Suggestions for Further Development -->
-     <!--
-    <section class="section">
-        <h3 class="text-center text-white">Suggestions for Further Development</h3>
-        <ul class="text-white">
-            <li><strong>Backend Integration:</strong> Consider adding backend functionality to handle form submissions and store data securely.</li>
-            <li><strong>Additional Content:</strong> Continuously expand the medical content section with articles, news, and research findings.</li>
-            <li><strong>Accessibility Features:</strong> Ensure the site is accessible to all users, including those with disabilities, by following best practices in web design.</li>
-        </ul>
-    </section>
--->
-    <!-- Key Additions -->
-     <!-- 
-    <section class="section">
-        <h3 class="text-center text-white">Key Additions</h3>
-        <ul class="text-white">
-            <li><strong>Suggestions for Further Development Section:</strong> A new section at the end provides clear suggestions for enhancing the website, making it easier for future developers or stakeholders to see areas for improvement.</li>
-            <li><strong>Bullet Points:</strong> Suggestions are presented as a bulleted list for better readability.</li>
-            <li><strong>Consistent Styling:</strong> Maintained consistent text color and styling to ensure professionalism throughout the document.</li>
-        </ul>
-    </section>
-  -->
 </main>
 
 <footer>
