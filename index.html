@@ -1,202 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College of Health Science</title>
-    <link rel="icon" type="image/x-icon" href="nn.jpg">
-    <meta name="description" content="A website about medical science space">
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>innocenty Downloader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
+            font-family: 'Poppins', sans-serif;
         }
 
-        header {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
+        .spinner-border {
+            border: 2px solid #ccc;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
         }
 
-        h2 {
-            margin-bottom: 20px;
-            color: #000000;
-        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
 
-        .container {
-            background-color: rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        button[type="submit"] {
-            background: #555555;
-            color: white;
-            padding: 14px 27px;
-            border: 0;
-            border-radius: 28px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        button[type="submit"]::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            border-width: 0 5px 5px 0;
-            border-style: solid;
-            border-color: transparent transparent #ffffff transparent;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #ffffff;
-            padding: 20px 0;
-            background-color: #000000;
-        }
-
-        .section {
-            margin-top: 40px;
-        }
-
-        nav a {
-            color: #ffffff;
-            margin: 0 15px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
-<body>
 
-<!-- Navigation -->
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">Health Science</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Contact</a></li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-            </form>
+<body class="bg-gradient-to-br from-blue-500 to-teal-500 min-h-screen flex justify-center items-center">
+    <div class="max-w-lg w-full bg-white p-8 rounded-xl shadow-2xl space-y-8">
+        <h1 class="text-3xl font-semibold text-center text-gray-900">YouTube Video Downloader</h1>
+
+        <!-- Legal Disclaimer -->
+        <p class="text-xs text-center text-gray-500">
+            This tool is for educational purposes only. Downloading content from YouTube may violate YouTube's Terms of Service.
+            Use responsibly.
+        </p>
+
+        <!-- URL Input Form -->
+        <div>
+            <label for="videoUrl" class="block text-gray-700 font-medium">Enter YouTube Video URL</label>
+            <input id="videoUrl" type="url" class="w-full mt-2 p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="https://www.youtube.com/watch?v=xyz123" required>
         </div>
-    </nav>
-</header>
 
-<main class="container my-5">
-    <h2 class="text-center">COLLEGE OF HEALTH SCIENCE</h2>
+        <!-- Format Selection -->
+        <div class="mt-4">
+            <label for="format" class="block text-gray-700 font-medium">Select Video Format</label>
+            <select id="format" class="w-full mt-2 p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="best">Best Video (with Audio)</option>
+                <option value="audio">Audio Only (MP3)</option>
+                <option value="720p">720p Video</option>
+                <option value="1080p">1080p Video</option>
+            </select>
+        </div>
 
-    <section class="section">
-        <form id="myForm">
-            <div class="form-group">
-                <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="firstname" class="form-control" placeholder="Your first name.." required>
-                <span class="error-message text-danger" style="display:none;"></span>
-            </div>
+        <!-- Download Button -->
+        <button id="downloadBtn"
+            class="w-full bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+            disabled>Download Video</button>
 
-            <div class="form-group">
-                <label for="lname">Last Name:</label>
-                <input type="text" id="lname" name="lastname" class="form-control" placeholder="Your last name.." required>
-                <span class="error-message text-danger" style="display:none;"></span>
-            </div>
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="hidden text-center text-gray-600">
+            <div class="spinner-border"></div>
+            <p class="mt-2">Processing...</p>
+        </div>
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Your email.." required>
-                <span class="error-message text-danger" style="display:none;"></span>
-            </div>
+        <!-- Error Message -->
+        <div id="errorMessage" class="hidden text-red-500 text-center text-sm font-medium">
+            <p>Please enter a valid YouTube URL.</p>
+        </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <div id="submission-response" class="mt-3"></div>
-        </form>
-    </section>
+        <!-- Success Message -->
+        <div id="successMessage" class="hidden text-green-500 text-center text-sm font-medium">
+            <p>Video is ready for download!</p>
+        </div>
+    </div>
 
-    <section class="section">
-        <h3 class="text-center">Endless Content about Medicine</h3>
-        <p>Welcome to the College of Health Science! Our mission is to provide high-quality education and training in the medical field. We believe that knowledge is the foundation of good health, and our courses are designed to empower students with the necessary skills and expertise.</p>
-        
-        <p>Our faculty comprises experienced professionals and experts in various medical fields. They are dedicated to nurturing the next generation of healthcare providers. From nursing to pharmacy, we offer diverse programs that cater to the evolving needs of the healthcare sector.</p>
-        
-        <p>Additionally, our institution emphasizes research and innovation in medicine. Students are encouraged to engage in research projects that contribute to advancements in healthcare practices. We also collaborate with local hospitals and clinics to provide hands-on training and real-world experience.</p>
+    <script>
+        const videoUrlInput = document.getElementById('videoUrl');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        const formatSelect = document.getElementById('format');
 
-        <p>We offer workshops, seminars, and guest lectures to further enrich our students' learning experiences. Join us in our commitment to improving health and well-being in our community and beyond.</p>
+        // Enable the button when the URL is valid
+        videoUrlInput.addEventListener('input', () => {
+            const url = videoUrlInput.value.trim();
+            if (url && isValidUrl(url)) {
+                downloadBtn.disabled = false;
+                errorMessage.classList.add('hidden');
+            } else {
+                downloadBtn.disabled = true;
+                errorMessage.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+            }
+        });
 
-        <p>For more information about our programs and enrollment, please feel free to reach out to us through the contact form above or visit our campus.</p>
-    </section>
-</main>
-
-<footer>
-    <p>&copy; 2024 Innocent Wise. All Rights Reserved.</p>
-    <p>Developed with a commitment to excellence in education and healthcare.</p>
-</footer>
-
-<script>
-    const form = document.getElementById('myForm');
-    const errorMessages = document.querySelectorAll('.error-message');
-
-    form.addEventListener('submit', (event) => {
-        let hasErrors = false;
-
-        // Clear previous error messages
-        errorMessages.forEach(message => message.style.display = 'none');
-        
-        const firstName = document.getElementById('fname');
-        const lastName = document.getElementById('lname');
-        const email = document.getElementById('email');
-
-        // Validation checks
-        if (firstName.value.trim() === "") {
-            hasErrors = true;
-            errorMessage(firstName, "Please enter your first name.");
+        // URL validation regex
+        function isValidUrl(url) {
+            const regex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=[\w-]{11})$/;
+            return regex.test(url);
         }
 
-        if (lastName.value.trim() === "") {
-            hasErrors = true;
-            errorMessage(lastName, "Please enter your last name.");
-        }
+        // Handle the download action
+        downloadBtn.addEventListener('click', async () => {
+            const url = videoUrlInput.value.trim();
+            const format = formatSelect.value;
 
-        if (email.value.trim() === "") {
-            hasErrors = true;
-            errorMessage(email, "Please enter your email address.");
-        } else if (!validateEmail(email.value)) {
-            hasErrors = true;
-            errorMessage(email, "Please enter a valid email address.");
-        }
+            if (!url || !isValidUrl(url)) {
+                alert("Please provide a valid YouTube URL.");
+                return;
+            }
 
-        if (hasErrors) {
-            event.preventDefault();
-        } else {
-            // Simulate successful submission
-            document.getElementById('submission-response').textContent = "Thank you for your submission!";
-            form.reset();
-        }
-    });
+            // Show loading spinner
+            loadingSpinner.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+            downloadBtn.disabled = true;
 
-    function errorMessage(inputElement, message) {
-        inputElement.nextElementSibling.textContent = message;
-        inputElement.nextElementSibling.style.display = 'inline';
-    }
+            try {
+                const response = await fetch(`/download?url=${encodeURIComponent(url)}&format=${format}`);
+                if (!response.ok) {
+                    throw new Error("Download failed.");
+                }
 
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-</script>
+                // The backend will trigger the file download
+                const blob = await response.blob();
+                const downloadUrl = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = downloadUrl;
+                link.download = "video." + format; // Default name for download
+                link.click();
+
+                loadingSpinner.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                downloadBtn.disabled = false;
+
+            } catch (error) {
+                console.error(error);
+                alert("An error occurred during the download process.");
+                loadingSpinner.classList.add('hidden');
+                downloadBtn.disabled = false;
+            }
+        });
+    </script>
 </body>
+
 </html>
