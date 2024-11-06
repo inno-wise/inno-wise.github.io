@@ -3,60 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - College of Health Science</title>
-    <link rel="icon" type="image/x-icon" href="nn.jpg">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Advanced Sudoku Game</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/pyscript@0.10.1/pyscript.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
+        .sudoku-board {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 2px;
         }
-
-        header {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 20px;
+        .cell {
+            width: 40px;
+            height: 40px;
             text-align: center;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            background-color: #fff;
         }
-
-        h1, h2 {
-            color: #000000;
+        .highlight {
+            background-color: #f0f8ff;
         }
-
-        .container {
-            background-color: rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        .invalid {
+            background-color: #ffcccc;
         }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #ffffff;
-            padding: 20px 0;
-            background-color: #000000;
+        .valid {
+            background-color: #c8e6c9;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100 p-8">
 
-<header>
-    <h1>Welcome to the College of Health Science</h1>
-</header>
+    <!-- Game Section -->
+    <div id="game-container" class="mx-auto max-w-3xl bg-white p-6 rounded-xl shadow-lg mt-10 hidden">
+        <div id="board" class="sudoku-board mb-4"></div>
 
-<main class="container my-5">
-    <h2>About Us</h2>
-    <p>We provide comprehensive education and training in the health sciences.</p>
-</main>
+        <div class="flex justify-between mt-6">
+            <div id="timer" class="text-xl text-gray-600">Time: 00:00</div>
+            <div>
+                <button id="solve-btn" class="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition">Solve Sudoku</button>
+                <button id="reset-btn" class="bg-red-500 text-white py-2 px-6 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition">Reset Board</button>
+            </div>
+        </div>
 
-<footer>
-    <p>&copy; 2024 Innocent Wise. All Rights Reserved.</p>
-        <a href"index.html">index</a>
-    <a href"services.html">service</a>
-    <a href"about.html">about</a>
-</footer>
+        <div id="message" class="mt-4 text-center text-xl"></div>
+        <div id="high-score" class="text-center mt-4">Best Time: <span id="best-time">Not Available</span></div>
+
+        <div class="flex justify-center mt-6">
+            <button id="create-puzzle-btn" class="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Create Custom Puzzle</button>
+        </div>
+
+        <!-- Custom Puzzle Creation -->
+        <div id="create-puzzle-container" class="mt-10 hidden">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Create Custom Puzzle</h2>
+            <div class="sudoku-board" id="custom-puzzle-board"></div>
+            <div class="text-center mt-4">
+                <button id="save-puzzle-btn" class="bg-yellow-500 text-white py-2 px-6 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition">Save Puzzle</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PyScript -->
+    <py-script>
+        from pyscript import Element
+        import numpy as np
+        import json
+        import requests
+
+        # Initialize the board as a 9x9 grid
+        board = np.zeros((9, 9), dtype=int)
+        start_time = None
+        timer_interval = None
+        best_time = None
+        user_logged_in = False
+        current_user = ""
+
+        def render_board():
+            board_element = Element("board")
+            board_element.clear()
+            for i in range(9):
+                for j in range(9):
+                    cell_value = str(board[i][j]) if board[i][j] != 0 else ""
+                    cell = f'<input id="cell-{i}-{j}" type="text" class="cell border text-center text-xl py-2 px-4 rounded-md focus:ring-2 focus:ring-blue-500" maxlength="1" value="{cell_value}" oninput="update_cell({i}, {j}, this.value)"/>'
+                    board_element.write(cell)
+
+        def update_cell(row, col, value):
+            try:
+                value = int(value)
+                if value < 1 or value > 9:
+                    raise ValueError
+            except ValueError:
+                return
+            board[row][col] = value
+
+        def start_timer():
+            nonlocal start_time
+            start_time = time.time()
+            timer_interval = Element("timer")
+            while start_time:
+                elapsed_time = int(time.time() - start_time)
+                minutes = elapsed_time // 60
+                seconds = elapsed_time % 60
+                timer_interval.write(f"Time: {minutes:02d}:{seconds:02d}")
+                time.sleep(1)
+
+        def stop_timer():
+            nonlocal start_time
+            start_time = None
+            Element("timer").write("Time: 00:00")
+
+        def solve_sudoku():
+            if solve(board):
+                render_board()
+                display_message("Puzzle Solved!", "text-green-500")
+                stop_timer()
+                if best_time is None or elapsed_time < best_time:
+                    best_time = elapsed_time
+                    Element("best-time").write(f"{elapsed_time} seconds")
+            else:
+                display_message("No solution found!", "text-red-500")
+
+        def reset_sudoku():
+            nonlocal board
+            board = np.zeros((9, 9), dtype=int)
+            render_board()
+            display_message("Game Reset", "text-gray-600")
+            stop_timer()
+
+        # Function to create custom puzzle grid
+        def create_custom_puzzle():
+            create_puzzle_element = Element("create-puzzle-container")
+            create_puzzle_element.show()
+            puzzle_board_element = Element("custom-puzzle-board")
+            puzzle_board_element.clear()
+            custom_board = np.zeros((9, 9), dtype=int)
+            for i in range(9):
+                for j in range(9):
+                    cell_value = str(custom_board[i][j]) if custom_board[i][j] != 0 else ""
+                    cell = f'<input id="custom-cell-{i}-{j}" type="text" class="cell border text-center text-xl py-2 px-4 rounded-md focus:ring-2 focus:ring-blue-500" maxlength="1" value="{cell_value}" oninput="update_custom_cell({i}, {j}, this.value)"/>'
+                    puzzle_board_element.write(cell)
+
+        def update_custom_cell(row, col, value):
+            try:
+                value = int(value)
+                if value < 1 or value > 9:
+                    raise ValueError
+            except ValueError:
+                return
+            custom_board[row][col] = value
+
+        def save_custom_puzzle():
+            custom_puzzle = custom_board.tolist()
+            payload = {"puzzle": custom_puzzle}
+            response = requests.post("/save_custom_puzzle", json=payload)
+            if response.status_code == 200:
+                display_message("Puzzle saved successfully!", "text-green-500")
+            else:
+                display_message("Error saving puzzle!", "text-red-500")
+
+        # Button listeners
+        Element("solve-btn").element.onclick = solve_sudoku
+        Element("reset-btn").element.onclick = reset_sudoku
+        Element("create-puzzle-btn").element.onclick = create_custom_puzzle
+        Element("save-puzzle-btn").element.onclick = save_custom_puzzle
+
+    </py-script>
 
 </body>
 </html>
