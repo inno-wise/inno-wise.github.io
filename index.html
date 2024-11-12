@@ -1,166 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>innocenty Downloader</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .spinner-border {
-            border: 2px solid #ccc;
-            border-top: 2px solid #3498db;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Disable Right-Click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
 </head>
+<body class="bg-gray-900 text-white">
 
-<body class="bg-gradient-to-br from-blue-500 to-teal-500 min-h-screen flex justify-center items-center">
-    <div class="max-w-lg w-full bg-white p-8 rounded-xl shadow-2xl space-y-8">
-        <h1 class="text-3xl font-semibold text-center text-gray-900">innocenty Downloader</h1>
+  <!-- Navigation Bar -->
+  <header class="fixed w-full z-50 bg-gray-800 bg-opacity-80">
+    <nav class="max-w-7xl mx-auto px-4 py-4">
+      <ul class="flex justify-center space-x-8">
+        <li><a href="#about" class="text-lg hover:text-pink-400 transition">About Me</a></li>
+        <li><a href="#workflow" class="text-lg hover:text-pink-400 transition">My Workflow</a></li>
+        <li><a href="#contact" class="text-lg hover:text-pink-400 transition">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <!-- Legal Disclaimer -->
-        <p class="text-xs text-center text-gray-500">
-            This tool is for educational purposes only. Downloading content from YouTube may violate YouTube's Terms of Service.
-            Use responsibly.
-        </p>
-
-        <!-- URL Input Form -->
-        <div>
-            <label for="videoUrl" class="block text-gray-700 font-medium">Enter YouTube Video URL</label>
-            <input id="videoUrl" type="url" class="w-full mt-2 p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="https://www.youtube.com/watch?v=xyz123" required>
-        </div>
-
-        <!-- Format Selection -->
-        <div class="mt-4">
-            <label for="format" class="block text-gray-700 font-medium">Select Video Format</label>
-            <select id="format" class="w-full mt-2 p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="best">Best Video (with Audio)</option>
-                <option value="audio">Audio Only (MP3)</option>
-                <option value="720p">720p Video</option>
-                <option value="1080p">1080p Video</option>
-            </select>
-        </div>
-
-        <!-- Download Button -->
-        <button id="downloadBtn"
-            class="w-full bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
-            disabled>Download Video</button>
-
-        <!-- Loading Spinner -->
-        <div id="loadingSpinner" class="hidden text-center text-gray-600">
-            <div class="spinner-border"></div>
-            <p class="mt-2">Processing...</p>
-        </div>
-
-        <!-- Error Message -->
-        <div id="errorMessage" class="hidden text-red-500 text-center text-sm font-medium">
-            <p>Please enter a valid YouTube URL.</p>
-        </div>
-
-        <!-- Success Message -->
-        <div id="successMessage" class="hidden text-green-500 text-center text-sm font-medium">
-            <p>Video is ready for download!</p>
-        </div>
+  <!-- Hero Section -->
+  <section id="hero" class="relative h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517503733723-8ea1cf616798?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
+      <h1 class="text-5xl font-extrabold text-white">Welcome to My Portfolio</h1>
+      <p class="text-lg mt-4 text-pink-300">I'm a passionate developer who loves creating seamless user experiences.</p>
     </div>
-<footer class="bg-gray-800 text-white py-6 mt-10">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center">
-        <p class="text-sm mb-4">&copy; 2024 Innocent Wise. All Rights Reserved.</p>
-        <div class="space-x-4">
-            <a href="index.html" class="text-sm text-gray-300 hover:text-white transition-colors">Index</a>
-            <a href="home.html" class="text-sm text-gray-300 hover:text-white transition-colors">Home</a>
-            <a href="services.html" class="text-sm text-gray-300 hover:text-white transition-colors">Services</a>
-                <a href="https://inno-wise.github.io/mydiary/" class="text-sm text-gray-300 hover:text-white transition-colors">Anonimous</a>
-        </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-20 px-4 sm:px-6 md:px-8 bg-gray-800">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold text-purple-400">About Me</h2>
+      <p class="mt-6 text-lg text-gray-400">
+        Hi! I'm a **self-taught DevOps, Cybersecurity, and Hardware Engineer** with a passion for solving complex problems.
+        I love working with technology to improve systems and enhance security. From setting up scalable infrastructure
+        to ensuring cybersecurity, I'm always learning and exploring new techniques to make the digital world more secure.
+      </p>
     </div>
-</footer>
+  </section>
 
-    <script>
-        const videoUrlInput = document.getElementById('videoUrl');
-        const downloadBtn = document.getElementById('downloadBtn');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const errorMessage = document.getElementById('errorMessage');
-        const successMessage = document.getElementById('successMessage');
-        const formatSelect = document.getElementById('format');
+  <!-- My Workflow Section -->
+  <section id="workflow" class="py-20 px-4 sm:px-6 md:px-8 bg-gray-700">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold text-purple-400">My Workflow</h2>
+      <ul class="mt-8 space-y-6 text-lg text-gray-300">
+        <li class="hover:text-pink-400 transition">Understand the problem</li>
+        <li class="hover:text-pink-400 transition">Design wireframes & UI</li>
+        <li class="hover:text-pink-400 transition">Write clean and efficient code</li>
+        <li class="hover:text-pink-400 transition">Test & Deploy</li>
+        <li class="hover:text-pink-400 transition">Continuous improvement</li>
+      </ul>
+    </div>
+  </section>
 
-        // Enable the button when the URL is valid
-        videoUrlInput.addEventListener('input', () => {
-            const url = videoUrlInput.value.trim();
-            if (url && isValidUrl(url)) {
-                downloadBtn.disabled = false;
-                errorMessage.classList.add('hidden');
-            } else {
-                downloadBtn.disabled = true;
-                errorMessage.classList.remove('hidden');
-                successMessage.classList.add('hidden');
-            }
-        });
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 sm:px-6 md:px-8 bg-gray-800">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold text-purple-400">Contact Me</h2>
+      <p class="mt-6 text-lg text-gray-400">Feel free to reach out for any project inquiries or collaborations!</p>
+      <p class="mt-4 text-lg text-pink-300">Email: <a href="mailto:innocentwise123@gmail.com" class="underline">innocentwise123@gmail.com</a></p>
+    </div>
+  </section>
 
-        // URL validation regex
-        function isValidUrl(url) {
-            const regex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=[\w-]{11})$/;
-            return regex.test(url);
-        }
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-8 text-center text-gray-400">
+    <p>&copy; 2024 My Portfolio | All rights reserved</p>
+  </footer>
 
-        // Handle the download action
-        downloadBtn.addEventListener('click', async () => {
-            const url = videoUrlInput.value.trim();
-            const format = formatSelect.value;
+  <!-- Scroll Effects: ScrollReveal.js -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal().reveal('#about', {
+      delay: 300,
+      distance: '50px',
+      opacity: 0,
+      duration: 1000,
+      easing: 'ease-in-out',
+      origin: 'bottom',
+      reset: true
+    });
 
-            if (!url || !isValidUrl(url)) {
-                alert("Please provide a valid YouTube URL.");
-                return;
-            }
+    ScrollReveal().reveal('#workflow', {
+      delay: 500,
+      distance: '50px',
+      opacity: 0,
+      duration: 1000,
+      easing: 'ease-in-out',
+      origin: 'bottom',
+      reset: true
+    });
 
-            // Show loading spinner
-            loadingSpinner.classList.remove('hidden');
-            successMessage.classList.add('hidden');
-            downloadBtn.disabled = true;
+    ScrollReveal().reveal('#contact', {
+      delay: 700,
+      distance: '50px',
+      opacity: 0,
+      duration: 1000,
+      easing: 'ease-in-out',
+      origin: 'bottom',
+      reset: true
+    });
+  </script>
 
-            try {
-                const response = await fetch(`/download?url=${encodeURIComponent(url)}&format=${format}`);
-                if (!response.ok) {
-                    throw new Error("Download failed.");
-                }
-
-                // The backend will trigger the file download
-                const blob = await response.blob();
-                const downloadUrl = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = downloadUrl;
-                link.download = "video." + format; // Default name for download
-                link.click();
-
-                loadingSpinner.classList.add('hidden');
-                successMessage.classList.remove('hidden');
-                downloadBtn.disabled = false;
-
-            } catch (error) {
-                console.error(error);
-                alert("An error occurred during the download process.");
-                loadingSpinner.classList.add('hidden');
-                downloadBtn.disabled = false;
-            }
-        });
-    </script>
 </body>
-
 </html>
