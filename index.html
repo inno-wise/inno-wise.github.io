@@ -20,9 +20,9 @@
         <li><a href="#about" class="text-lg hover:text-pink-400 transition">About Me</a></li>
         <li><a href="#workflow" class="text-lg hover:text-pink-400 transition">My Workflow</a></li>
         <li><a href="#contact" class="text-lg hover:text-pink-400 transition">Contact</a></li>
-         <li><a href="https://inno-wise.github.io/mydiary/blogs.html" class="text-lg hover:text-pink-400 transition">Projects</a></li>
-         <li><a href="https://inno-wise.github.io/mydiary/index.html" class="text-lg hover:text-pink-400 transition">Blogs</a></li>
-         <li><a href="https://inno-wise.github.io/skuul-system-github.io/" class="text-lg hover:text-pink-400 transition">software</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/blogs.html" class="text-lg hover:text-pink-400 transition">Projects</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/index.html" class="text-lg hover:text-pink-400 transition">Blogs</a></li>
+        <li><a href="https://inno-wise.github.io/skuul-system-github.io/" class="text-lg hover:text-pink-400 transition">Software</a></li>
       </ul>
     </nav>
   </header>
@@ -80,33 +80,51 @@
   <script src="https://unpkg.com/scrollreveal"></script>
   <script>
     ScrollReveal().reveal('#about', {
-      delay: 300,
-      distance: '50px',
+      delay: 200,
+      distance: '80px',
       opacity: 0,
-      duration: 1000,
+      duration: 1200,
       easing: 'ease-in-out',
-      origin: 'bottom',
-      reset: true
+      origin: 'top', // Slide in from top
+      reset: true,
+      beforeReveal: function (el) {
+        el.style.color = '#ffb86c'; // Light orange before reveal
+      },
+      afterReveal: function (el) {
+        el.style.color = '#f1fa8c'; // Bright yellow after reveal
+      }
     });
 
     ScrollReveal().reveal('#workflow', {
-      delay: 500,
-      distance: '50px',
+      delay: 400,
+      distance: '70px',
       opacity: 0,
-      duration: 1000,
+      duration: 1300,
       easing: 'ease-in-out',
-      origin: 'bottom',
-      reset: true
+      origin: 'left', // Slide in from left
+      reset: true,
+      beforeReveal: function (el) {
+        el.style.color = '#bd93f9'; // Light purple before reveal
+      },
+      afterReveal: function (el) {
+        el.style.color = '#ff79c6'; // Bright pink after reveal
+      }
     });
 
     ScrollReveal().reveal('#contact', {
-      delay: 700,
-      distance: '50px',
+      delay: 600,
+      distance: '90px',
       opacity: 0,
-      duration: 1000,
+      duration: 1400,
       easing: 'ease-in-out',
-      origin: 'bottom',
-      reset: true
+      origin: 'right', // Slide in from right
+      reset: true,
+      beforeReveal: function (el) {
+        el.style.color = '#50fa7b'; // Light green before reveal
+      },
+      afterReveal: function (el) {
+        el.style.color = '#ff5555'; // Red after reveal
+      }
     });
   </script>
 
