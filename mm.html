@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innocent Mwea | Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="https://inno-wise.github.io/mydiary/img/mot.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Firebase SDK (Updated to Modular Version) -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+
+  <style>
+    /* Custom animations */
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 10s linear infinite;
+    }
+
+    /* Star Rating System */
+    .star {
+      font-size: 2rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .star.hover,
+    .star.filled {
+      color: #FFD700;
+    }
+
+    /* Button Hover Effects */
+    .btn-effect {
+      position: relative;
+      overflow: hidden;
+      padding: 10px 30px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+      background-color: #7C3AED;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    }
+
+    .btn-effect::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #F472B6;
+      transition: width 0.3s;
+    }
+
+    .btn-effect:hover {
+      color: #7C3AED;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    .btn-effect:hover::before {
+      width: 100%;
+    }
+
+    /* Button with Delay Hover */
+    .btn-hover-delay {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-hover-delay:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Floating Button or Links */
+    .btn-floating {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .btn-floating:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Image Hover Effect */
+    .img-hover:hover {
+      transform: scale(1.1);
+      transition: transform 0.5s ease;
+    }
+
+    /* Hover effect for Social Media Icons */
+    .social-icon:hover {
+      transform: rotate(20deg);
+      transition: transform 0.3s ease;
+    }
+
+    /* Section with Text Animation */
+    .section-text {
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Section Background Animation */
+    .bg-animate {
+      position: relative;
+      animation: backgroundAnimation 3s infinite alternate;
+    }
+
+    @keyframes backgroundAnimation {
+      0% {
+        background-color: #1a202c;
+      }
+
+      100% {
+        background-color: #2d3748;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body class="bg-gray-900 text-white">
+
+  <!-- Language Switcher -->
+  <div id="languageSwitcher" class="fixed top-4 right-4 z-50">
+    <button id="langEn" class="btn-effect hover:bg-gray-700 transition delay-200">EN</button>
+    <button id="langFr" class="btn-effect hover:bg-gray-700 transition delay-200 ml-2">FR</button>
+    <button id="langHi" class="btn-effect hover:bg-gray-700 transition delay-200 ml-2">HI</button>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="fixed w-full z-50 bg-gray-800 bg-opacity-80">
+    <nav class="max-w-7xl mx-auto px-4 py-4">
+      <ul class="flex justify-center space-x-8">
+        <li><a href="#about" class="text-lg hover:text-pink-400 transition delay-200">About Me</a></li>
+        <li><a href="#workflow" class="text-lg hover:text-pink-400 transition delay-200">My Workflow</a></li>
+        <li><a href="#contact" class="text-lg hover:text-pink-400 transition delay-200">Contact</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/blogs.html" class="text-lg hover:text-pink-400 transition delay-200">Projects</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/index.html" class="text-lg hover:text-pink-400 transition delay-200">Blogs</a></li>
+        <li><a href="https://inno-wise.github.io/skuul-system-github.io/" class="text-lg hover:text-pink-400 transition delay-200">Software</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative h-screen bg-cover bg-center bg-animate" style="background-image: url('https://images.unsplash.com/photo-1517503733723-8ea1cf616798?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
+      <h1 id="heroWelcome" class="text-5xl font-extrabold text-white delay-200 section-text">Welcome to My Portfolio</h1>
+      <p class="text-lg mt-4 text-pink-300 marquee-text delay-300 section-text">I'm a passionate developer who loves creating seamless user experiences.</p>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-20 px-4 sm:px-6 md:px-8 bg-gray-800">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 id="aboutMeTitle" class="text-3xl font-semibold text-purple-400 delay-400 section-text">About Me</h2>
+      <p id="aboutMeDescription" class="mt-6 text-lg text-gray-400 delay-500 section-text">
+        Hi! I'm a **self-taught DevOps, Cybersecurity, and Hardware Engineer** with a passion for solving complex problems.
+      </p>
+      <img src="https://via.placeholder.com/150" alt="Profile Picture" class="mx-auto mt-8 img-hover">
+    </div>
+  </section>
+
+  <!-- Like Button -->
+  <section class="py-20 text-center">
+    <button id="likeBtn" class="like-button px-6 py-3 bg-purple-500 rounded-lg text-white text-lg hover:bg-purple-700 transition delay-200 btn-hover-delay">Like this post!</button>
+  </section>
+
+  <!-- Star Rating Section -->
+  <section class="py-20 text-center">
+    <div class="flex justify-center">
+      <span class="star" data-value="1">&#9733;</span>
+      <span class="star" data-value="2">&#9733;</span>
+      <span class="star" data-value="3">&#9733;</span>
+      <span class="star" data-value="4">&#9733;</span>
+      <span class="star" data-value="5">&#9733;</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-8 text-center text-gray-400">
+    <p>&copy; 2024 Innocent Mwea | All rights reserved</p>
+  </footer>
+
+  <script>
+    // Rating Stars Functionality
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+      star.addEventListener('mouseover', () => {
+        for (let i = 0; i <= index; i++) {
+          stars[i].classList.add('hover');
+        }
+      });
+      star.addEventListener('mouseout', () => {
+        stars.forEach(star => star.classList.remove('hover'));
+      });
+      star.addEventListener('click', () => {
+        let value = star.getAttribute('data-value');
+        for (let i = 0; i < stars.length; i++) {
+          if (i < value) {
+            stars[i].classList.add('filled');
+          } else {
+            stars[i].classList.remove('filled');
+          }
+        }
+      });
+    });
+
+    // Like Button Functionality
+    document.getElementById('likeBtn').addEventListener('click', () => {
+      alert('You liked this post!');
+    });
+  </script>
+
+</body>
+
+</html>
