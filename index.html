@@ -4,18 +4,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Innocent Mwea | Portfolio</title>
+  <meta name="description" content="Innocent Mwea's portfolio showcasing his skills in DevOps, Cybersecurity, and Hardware Engineering. Learn more about his projects, blogs, and software work.">
+  <meta name="keywords" content="Innocent Mwea, DevOps, Cybersecurity, Hardware Engineering, Portfolio, Projects, Blogs, Software Development">
+  <meta name="author" content="Innocent Mwea">
+  <meta property="og:title" content="Innocent Mwea | Portfolio">
+  <meta property="og:description" content="Explore Innocent Mwea's portfolio, featuring DevOps, Cybersecurity, and Hardware Engineering skills, projects, and blogs.">
+  <meta property="og:image" content="https://inno-wise.github.io/mydiary/img/mot.png">
+  <meta property="og:url" content="https://inno-wise.github.io">
+  <meta name="twitter:title" content="Innocent Mwea | Portfolio">
+  <meta name="twitter:description" content="Explore Innocent Mwea's portfolio, featuring DevOps, Cybersecurity, and Hardware Engineering skills, projects, and blogs.">
+  <meta name="twitter:image" content="https://inno-wise.github.io/mydiary/img/mot.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/x-icon" href="https://inno-wise.github.io/mydiary/img/mot.png">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="canonical" href="https://inno-wise.github.io">
+  <title>Innocent Mwea | Portfolio</title>
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
 
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    /* Keyframe Animations */
-    @keyframes marquee {
+    /* Stylish Navbar */
+    nav {
+      background: linear-gradient(135deg, #006400 0%, #003300 100%); /* Dark Green Gradient */
+    }
+
+    .nav-links {
+      transition: all 0.5s ease;
+    }
+
+    .nav-links li a {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: white;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      display: block;
+      position: relative;
+      transition: color 0.5s ease, transform 0.5s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #00FF00; /* Neon Green on Hover */
+      transform: translateY(-6px);
+    }
+
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #00FF00; /* Neon Green */
+      left: 50%;
+      bottom: -4px;
+      transition: all 0.5s ease;
+    }
+
+    .nav-links li a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Active link style */
+    .nav-links li a.active {
+      color: #00FF00; /* Neon Green */
+      font-weight: 700;
+    }
+
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 4rem;
+      color: white;
+    }
+
+    /* Animations */
+    .section-text {
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .marquee-text {
+      animation: marqueeEffect 10s linear infinite;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes marqueeEffect {
       0% {
         transform: translateX(100%);
       }
@@ -24,175 +124,53 @@
         transform: translateX(-100%);
       }
     }
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.1);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    /* Marquee Text Effect */
-    .marquee-text {
-      display: inline-block;
-      white-space: nowrap;
-      animation: marquee 10s linear infinite;
-    }
-
-    /* Button Hover Effects */
-    .btn-effect {
-      position: relative;
-      overflow: hidden;
-      padding: 12px 40px;
-      text-transform: uppercase;
-      font-weight: bold;
-      color: white;
-      background-color: #228B22; /* Dark Green */
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    }
-
-    .btn-effect::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background-color: #32CD32; /* Light Green */
-      transition: width 0.4s ease;
-    }
-
-    .btn-effect:hover {
-      color: #228B22;
-      background-color: white;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      transform: scale(1.05);
-    }
-
-    .btn-effect:hover::before {
-      width: 100%;
-    }
-
-    /* Hover effect with delay on buttons */
-    .btn-hover-delay {
-      transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-
-    .btn-hover-delay:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Floating Button or Links */
-    .btn-floating {
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-
-    .btn-floating:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Image Hover Effect with Zoom */
-    .img-hover:hover {
-      transform: scale(1.15);
-      transition: transform 0.4s ease;
-    }
-
-    /* Hover effect for Social Media Icons */
-    .social-icon:hover {
-      transform: rotate(15deg);
-      transition: transform 0.3s ease;
-    }
-
-    /* Text Fade-in Animation */
-    .section-text {
-      animation: fadeIn 1.5s ease-out forwards;
-      opacity: 0;
-    }
-
-    /* Section Background Animation */
-    .bg-animate {
-      position: relative;
-      animation: backgroundAnimation 7s ease-in-out infinite alternate;
-    }
-
-    @keyframes backgroundAnimation {
-      0% {
-        background-color: #1a202c;
-      }
-
-      100% {
-        background-color: #2d3748;
-      }
-    }
-
-    /* Like Button Hover Effect */
-    .like-btn {
-      font-size: 2rem;
-      color: #ccc;
-      cursor: pointer;
-      transition: color 0.2s ease, transform 0.3s ease;
-    }
-
-    .like-btn.hover,
-    .like-btn.filled {
-      color: #32CD32;
-      transform: scale(1.2);
-    }
-
   </style>
+
 </head>
 
 <body class="bg-gray-900 text-white">
 
-  <!-- Language Switcher -->
-  <div id="languageSwitcher" class="fixed top-4 right-4 z-50">
-    <button id="langEn" class="btn-effect hover:bg-gray-700 transition delay-200">EN</button>
-    <button id="langFr" class="btn-effect hover:bg-gray-700 transition delay-200 ml-2">FR</button>
-    <button id="langHi" class="btn-effect hover:bg-gray-700 transition delay-200 ml-2">HI</button>
-  </div>
-
   <!-- Navigation Bar -->
-  <header class="fixed w-full z-50 bg-gray-800 bg-opacity-80">
+  <header class="nav-bar">
     <nav class="max-w-7xl mx-auto px-4 py-6">
-      <ul class="flex justify-center space-x-8">
-        <li><a href="#about" class="text-lg hover:text-green-400 transition delay-200">About Me</a></li>
-        <li><a href="#workflow" class="text-lg hover:text-green-400 transition delay-200">My Workflow</a></li>
-        <li><a href="#contact" class="text-lg hover:text-green-400 transition delay-200">Contact</a></li>
-        <li><a href="https://inno-wise.github.io/mydiary/blogs.html" class="text-lg hover:text-green-400 transition delay-200">Projects</a></li>
-        <li><a href="https://inno-wise.github.io/mydiary/index.html" class="text-lg hover:text-green-400 transition delay-200">Blogs</a></li>
-        <li><a href="https://inno-wise.github.io/skuul-system-github.io/" class="text-lg hover:text-green-400 transition delay-200">Software</a></li>
+      <div class="flex items-center justify-between">
+        <div class="text-white text-2xl font-semibold">Innocent Mwea</div>
+        <button class="lg:hidden text-white" id="menu-toggle">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="nav-links hidden lg:flex justify-center items-center gap-8 mt-4 lg:mt-0">
+        <li><a href="#hero" class="transition delay-200">Home</a></li>
+        <li><a href="#about" class="transition delay-300">About Me</a></li>
+        <li><a href="#workflow" class="transition delay-400">My Workflow</a></li>
+        <li><a href="#contact" class="transition delay-500">Contact</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/blogs.html" class="transition delay-600">Projects</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/index.html" class="transition delay-700">Blogs</a></li>
+        <li><a href="https://inno-wise.github.io/skuul-system-github.io/" class="transition delay-800">Software</a></li>
+      </ul>
+
+      <!-- Mobile Menu -->
+      <ul id="mobile-menu" class="lg:hidden bg-gray-800 absolute top-20 left-0 w-full hidden">
+        <li><a href="#hero" class="block px-4 py-2">Home</a></li>
+        <li><a href="#about" class="block px-4 py-2">About Me</a></li>
+        <li><a href="#workflow" class="block px-4 py-2">My Workflow</a></li>
+        <li><a href="#contact" class="block px-4 py-2">Contact</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/blogs.html" class="block px-4 py-2">Projects</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/index.html" class="block px-4 py-2">Blogs</a></li>
+        <li><a href="https://inno-wise.github.io/skuul-system-github.io/" class="block px-4 py-2">Software</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative h-screen bg-cover bg-center bg-animate" style="background-image: url('https://images.unsplash.com/photo-1517503733723-8ea1cf616798?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
+  <section id="hero" class="relative h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517503733723-8ea1cf616798?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
       <h1 id="heroWelcome" class="text-5xl font-extrabold text-white delay-200 section-text">Welcome to My Portfolio</h1>
-      <p class="text-lg mt-4 text-green-300 marquee-text delay-300 section-text">I'm a passionate developer who loves creating seamless user experiences.</p>
+      <p class="text-lg mt-4 text-green-300 marquee-text delay-300">I'm a passionate developer who loves creating seamless user experiences.</p>
     </div>
   </section>
 
@@ -205,21 +183,6 @@
         I love working with technology to improve systems and enhance security. From setting up scalable infrastructure
         to ensuring cybersecurity, I'm always learning and exploring new techniques to make the digital world more secure.
       </p>
-      <img src="https://inno-wise.github.io/mydiary/img/mot.png" alt="Profile Picture" class="mx-auto mt-8 img-hover">
-    </div>
-  </section>
-
-  <!-- Comments and Like Button Section -->
-  <section id="commentsSection" class="py-20 px-4 sm:px-6 md:px-8 bg-gray-700">
-    <div class="max-w-4xl mx-auto">
-      <h3 id="feedbackTitle" class="text-3xl font-semibold text-green-400 delay-600 section-text">Give Your Feedback</h3>
-      <textarea id="commentsTextarea" class="mt-6 w-full p-4 bg-gray-800 text-white rounded-md" placeholder="Leave a comment..."></textarea>
-      <button id="submitCommentBtn" onclick="submitComment()" class="mt-4 px-6 py-2 btn-effect hover:bg-green-600 transition delay-700">Post Comment</button>
-
-      <!-- Like Button -->
-      <div class="mt-6">
-        <span class="like-btn text-4xl" onclick="likePost()">👍</span>
-      </div>
     </div>
   </section>
 
@@ -231,35 +194,125 @@
       <p class="mt-4 text-lg text-gray-400">✉️ Email: <a href="mailto:innocentwise123@gmail.com" class="text-green-400 hover:text-green-300">innocentwise123@gmail.com</a></p>
     </div>
   </section>
+  <!-- Comments Section -->
+  <section id="commentsSection" class="py-20 px-4 sm:px-6 md:px-8 bg-gray-700">
+    <div class="max-w-4xl mx-auto">
+      <h3 id="feedbackTitle" class="text-3xl font-semibold text-green-400">Give Your Feedback</h3>
+      <textarea id="commentsTextarea" class="mt-6 w-full p-4 bg-gray-800 text-white rounded-md" placeholder="Leave a comment..."></textarea>
+      <button id="submitCommentBtn" onclick="submitComment()" class="mt-4 px-6 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition">Post Comment</button>
+
+      <div id="commentsSection" class="mt-8"></div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-900 py-8 text-center text-gray-400">
     <p>&copy; 2024 Innocent Mwea | All rights reserved</p>
   </footer>
 
+  <!-- Firebase and JavaScript Logic -->
   <script>
-    // Firebase and other JavaScript functions (like rating, comments, etc.) would go here.
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
 
-    let isLiked = false;
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const firestore = firebase.firestore();
 
-    // Like post function
-    function likePost() {
-      isLiked = !isLiked;
-      const likeBtn = document.querySelector('.like-btn');
-      if (isLiked) {
-        likeBtn.classList.add('filled');
-        alert('You liked this post!');
-      } else {
-        likeBtn.classList.remove('filled');
-        alert('You unliked this post.');
+    // Language Texts (Translations)
+    const languageTexts = {
+      en: {
+        welcome: "Welcome to My Portfolio",
+        aboutMe: "About Me",
+        description: "Hi! I'm a self-taught DevOps, Cybersecurity, and Hardware Engineer with a passion for solving complex problems.",
+        feedback: "Give Your Feedback",
+        commentsPlaceholder: "Leave a comment...",
+        login: "Login",
+        signup: "Sign Up",
+        submitComment: "Post Comment",
+        rating: "Rate this page:",
+        error: "Error",
+        like: "Like",
+        liked: "Liked this post!"
+      }
+    };
+
+    // Event Listeners for Language Switcher
+    document.getElementById('langEn').addEventListener('click', () => setLanguage('en'));
+
+    // Error handling for form actions
+    async function submitComment() {
+      try {
+        const user = auth.currentUser;
+        if (!user) {
+          alert(languageTexts[currentLang].error + ": You must be logged in to post a comment.");
+          return;
+        }
+
+        const commentText = document.getElementById("commentsTextarea").value;
+        if (!commentText) {
+          alert(languageTexts[currentLang].error + ": Comment cannot be empty.");
+          return;
+        }
+
+        await firestore.collection('comments').add({
+          text: commentText,
+          uid: user.uid,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+
+        document.getElementById("commentsTextarea").value = ''; // Clear textarea after posting
+        alert(languageTexts[currentLang].submitComment);
+      } catch (error) {
+        alert(languageTexts[currentLang].error + ": " + error.message);
       }
     }
 
-    // Comment submission logic here
-    async function submitComment() {
-      // Firebase logic to submit comments...
-      alert('Comment posted successfully!');
+    // Like button function
+    async function likePost() {
+      try {
+        const user = auth.currentUser;
+        if (!user) {
+          alert(languageTexts[currentLang].error + ": Please log in to like this post.");
+          return;
+        }
+
+        const likesRef = firestore.collection('likes').doc(user.uid);
+        const doc = await likesRef.get();
+
+        if (!doc.exists) {
+          await likesRef.set({ liked: true });
+          alert(languageTexts[currentLang].liked);
+        } else {
+          await likesRef.delete();
+          alert(languageTexts[currentLang].error + ": You already unliked the post.");
+        }
+      } catch (error) {
+        alert(languageTexts[currentLang].error + ": " + error.message);
+      }
     }
+
+    // Real-time listener for comments
+    firestore.collection("comments").orderBy("timestamp", "desc").onSnapshot((querySnapshot) => {
+      let commentsHTML = '';
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        commentsHTML += `
+          <div class="comment mt-4 p-4 bg-gray-800 rounded-md">
+            <p><strong>User ${data.uid}</strong>: ${data.text}</p>
+          </div>
+        `;
+      });
+      document.getElementById("commentsSection").innerHTML = commentsHTML;
+    });
   </script>
 
 </body>
