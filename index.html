@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Innocent Mwea</title>
+  <title>Innocent Mwea | Portfolio</title>
   <link rel="icon" type="image/x-icon" href="https://inno-wise.github.io/mydiary/img/mot.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Firebase SDK -->
+
+  <!-- Firebase SDK (Updated to Modular Version) -->
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
-  <script>
-    // Firebase Configuration
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+    import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, doc, getDoc, setDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
     const firebaseConfig = {
       apiKey: "YOUR_API_KEY",
       authDomain: "YOUR_AUTH_DOMAIN",
@@ -22,11 +27,10 @@
     };
 
     // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const firestore = firebase.firestore();
-    
-    // Language Texts (Translations)
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const firestore = getFirestore(app);
+
     const languageTexts = {
       en: {
         welcome: "Welcome to My Portfolio",
@@ -72,13 +76,10 @@
       }
     };
 
-    // Current selected language
     let currentLang = 'en';
 
-    // Set language function
     function setLanguage(lang) {
       currentLang = lang;
-      // Change all texts dynamically based on selected language
       document.getElementById("heroWelcome").innerText = languageTexts[lang].welcome;
       document.getElementById("aboutMeTitle").innerText = languageTexts[lang].aboutMe;
       document.getElementById("aboutMeDescription").innerText = languageTexts[lang].description;
@@ -93,12 +94,10 @@
       document.getElementById("likedMessage").innerText = languageTexts[lang].liked;
     }
 
-    // Event Listeners for Language Switcher
     document.getElementById('langEn').addEventListener('click', () => setLanguage('en'));
     document.getElementById('langFr').addEventListener('click', () => setLanguage('fr'));
     document.getElementById('langHi').addEventListener('click', () => setLanguage('hi'));
 
-    // Error handling for form actions
     async function submitComment() {
       try {
         const user = auth.currentUser;
@@ -113,20 +112,19 @@
           return;
         }
 
-        await firestore.collection('comments').add({
+        await addDoc(collection(firestore, "comments"), {
           text: commentText,
           uid: user.uid,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          timestamp: serverTimestamp(),
         });
 
-        document.getElementById("commentsTextarea").value = ''; // Clear textarea after posting
+        document.getElementById("commentsTextarea").value = ''; 
         alert(languageTexts[currentLang].submitComment);
       } catch (error) {
         alert(languageTexts[currentLang].error + ": " + error.message);
       }
     }
 
-    // Like button function
     async function likePost() {
       try {
         const user = auth.currentUser;
@@ -135,14 +133,14 @@
           return;
         }
 
-        const likesRef = firestore.collection('likes').doc(user.uid);
-        const doc = await likesRef.get();
+        const likesRef = doc(firestore, 'likes', user.uid);
+        const docSnap = await getDoc(likesRef);
 
-        if (!doc.exists) {
-          await likesRef.set({ liked: true });
+        if (!docSnap.exists()) {
+          await setDoc(likesRef, { liked: true });
           alert(languageTexts[currentLang].liked);
         } else {
-          await likesRef.delete();
+          await deleteDoc(likesRef);
           alert(languageTexts[currentLang].error + ": You already unliked the post.");
         }
       } catch (error) {
@@ -150,28 +148,81 @@
       }
     }
 
-    // Real-time listener for comments
-    firestore.collection("comments").orderBy("timestamp", "desc").onSnapshot((querySnapshot) => {
+    onSnapshot(query(collection(firestore, "comments"), orderBy("timestamp", "desc")), (querySnapshot) => {
       let commentsHTML = '';
       querySnapshot.forEach((doc) => {
         const data = doc.data();
         commentsHTML += `
-          <div class="comment mt-4 p-4 bg-gray-800 rounded-md">
+          <div class="comment mt-4 p-4 bg-gray-800 rounded-md transition transform hover:scale-105">
             <p><strong>User ${data.uid}</strong>: ${data.text}</p>
           </div>
         `;
       });
-      document.getElementById("commentsSection").innerHTML = commentsHTML;
+      document.getElementById("commentsList").innerHTML = commentsHTML;
     });
   </script>
+
+  <style>
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 10s linear infinite;
+    }
+
+    /* Before & After effects for buttons */
+    .btn-effect::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #F472B6;
+      transition: width 0.3s;
+    }
+
+    .btn-effect:hover::before {
+      width: 100%;
+    }
+
+    .btn-effect {
+      position: relative;
+      overflow: hidden;
+      padding: 10px 30px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+      background-color: #7C3AED;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-effect:hover {
+      color: #7C3AED;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+  </style>
+
 </head>
 <body class="bg-gray-900 text-white">
 
   <!-- Language Switcher -->
   <div id="languageSwitcher" class="fixed top-4 right-4 z-50">
-    <button id="langEn" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition">EN</button>
-    <button id="langFr" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition ml-2">FR</button>
-    <button id="langHi" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition ml-2">HI</button>
+    <button id="langEn" class="btn-effect hover:bg-gray-700 transition">EN</button>
+    <button id="langFr" class="btn-effect hover:bg-gray-700 transition ml-2">FR</button>
+    <button id="langHi" class="btn-effect hover:bg-gray-700 transition ml-2">HI</button>
   </div>
 
   <!-- Navigation Bar -->
@@ -193,7 +244,7 @@
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
       <h1 id="heroWelcome" class="text-5xl font-extrabold text-white">Welcome to My Portfolio</h1>
-      <p class="text-lg mt-4 text-pink-300">I'm a passionate developer who loves creating seamless user experiences.</p>
+      <p class="text-lg mt-4 text-pink-300 marquee-text">I'm a passionate developer who loves creating seamless user experiences.</p>
     </div>
   </section>
 
@@ -202,9 +253,7 @@
     <div class="max-w-4xl mx-auto text-center">
       <h2 id="aboutMeTitle" class="text-3xl font-semibold text-purple-400">About Me</h2>
       <p id="aboutMeDescription" class="mt-6 text-lg text-gray-400">
-        Hi! I'm a **self-taught DevOps, Cybersecurity, and Hardware Engineer** with a passion for solving complex problems.
-        I love working with technology to improve systems and enhance security. From setting up scalable infrastructure
-        to ensuring cybersecurity, I'm always learning and exploring new techniques to make the digital world more secure.
+        Hi! I'm a **self-taught DevOps, Cybersecurity, and Hardware Engineer** with a passion for solving complex problems. I love working with technology to improve systems and enhance security. From setting up scalable infrastructure to ensuring cybersecurity, I'm always learning and exploring new techniques to make the digital world more secure.
       </p>
     </div>
   </section>
@@ -216,7 +265,7 @@
       <textarea id="commentsTextarea" class="mt-6 w-full p-4 bg-gray-800 text-white rounded-md" placeholder="Leave a comment..."></textarea>
       <button id="submitCommentBtn" onclick="submitComment()" class="mt-4 px-6 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition">Post Comment</button>
 
-      <div id="commentsSection" class="mt-8"></div>
+      <div id="commentsList" class="mt-8"></div>
     </div>
   </section>
 
