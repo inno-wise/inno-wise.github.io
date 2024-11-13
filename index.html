@@ -161,8 +161,154 @@
       }
     }
 
-  </style>
+    /* ------------------------------------Keyframe Animations -------------------------------------*/
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
 
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Marquee Text Effect */
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 12s linear infinite;
+    }
+
+    /* Star Rating System */
+    .star {
+      font-size: 2rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.3s ease;
+    }
+
+    .star.hover,
+    .star.filled {
+      color: #32CD32; /* Green color */
+      transform: scale(1.2);
+    }
+
+    /* Button Hover Effects */
+    .btn-effect {
+      position: relative;
+      overflow: hidden;
+      padding: 12px 40px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+      background-color: #228B22; /* Dark Green */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-effect::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #32CD32; /* Light Green */
+      transition: width 0.4s ease;
+    }
+
+    .btn-effect:hover {
+      color: #228B22;
+      background-color: white;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    .btn-effect:hover::before {
+      width: 100%;
+    }
+
+    /* Hover effect with delay on buttons */
+    .btn-hover-delay {
+      transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .btn-hover-delay:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Floating Button or Links */
+    .btn-floating {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .btn-floating:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Image Hover Effect with Zoom */
+    .img-hover:hover {
+      transform: scale(1.15);
+      transition: transform 0.4s ease;
+    }
+
+    /* Hover effect for Social Media Icons */
+    .social-icon:hover {
+      transform: rotate(15deg);
+      transition: transform 0.3s ease;
+    }
+
+    /* Text Fade-in Animation */
+    .section-text {
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* Section Background Animation */
+    .bg-animate {
+      position: relative;
+      animation: backgroundAnimation 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes backgroundAnimation {
+      0% {
+        background-color: #1a202c;
+      }
+
+      100% {
+        background-color: #2d3748;
+      }
+    }
+
+  </style>
 </head>
 
 <body class="bg-gray-900 text-white">
@@ -178,12 +324,12 @@
   <header class="fixed w-full z-50 bg-gray-800 bg-opacity-80">
     <nav class="max-w-7xl mx-auto px-4 py-4">
       <ul class="flex justify-center space-x-8">
-        <li><a href="#about" class="text-lg hover:text-pink-400 transition delay-200">About Me</a></li>
-        <li><a href="#workflow" class="text-lg hover:text-pink-400 transition delay-200">My Workflow</a></li>
-        <li><a href="#contact" class="text-lg hover:text-pink-400 transition delay-200">Contact</a></li>
-        <li><a href="https://inno-wise.github.io/mydiary/blogs.html" class="text-lg hover:text-pink-400 transition delay-200">Projects</a></li>
-        <li><a href="https://inno-wise.github.io/mydiary/index.html" class="text-lg hover:text-pink-400 transition delay-200">Blogs</a></li>
-        <li><a href="https://inno-wise.github.io/skuul-system-github.io/" class="text-lg hover:text-pink-400 transition delay-200">Software</a></li>
+        <li><a href="#about" class="text-lg hover:text-green-400 transition delay-200">About Me</a></li>
+        <li><a href="#workflow" class="text-lg hover:text-green-400 transition delay-200">My Workflow</a></li>
+        <li><a href="#contact" class="text-lg hover:text-green-400 transition delay-200">Contact</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/blogs.html" class="text-lg hover:text-green-400 transition delay-200">Projects</a></li>
+        <li><a href="https://inno-wise.github.io/mydiary/index.html" class="text-lg hover:text-green-400 transition delay-200">Blogs</a></li>
+        <li><a href="https://inno-wise.github.io/skuul-system-github.io/" class="text-lg hover:text-green-400 transition delay-200">Software</a></li>
       </ul>
     </nav>
   </header>
@@ -193,14 +339,14 @@
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
       <h1 id="heroWelcome" class="text-5xl font-extrabold text-white delay-200 section-text">Welcome to My Portfolio</h1>
-      <p class="text-lg mt-4 text-pink-300 marquee-text delay-300 section-text">I'm a passionate developer who loves creating seamless user experiences.</p>
+      <p class="text-lg mt-4 text-green-300 marquee-text delay-300 section-text">I'm a passionate developer who loves creating seamless user experiences.</p>
     </div>
   </section>
 
   <!-- About Me Section -->
   <section id="about" class="py-20 px-4 sm:px-6 md:px-8 bg-gray-800">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 id="aboutMeTitle" class="text-3xl font-semibold text-purple-400 delay-400 section-text">About Me</h2>
+      <h2 id="aboutMeTitle" class="text-3xl font-semibold text-green-400 delay-400 section-text">About Me</h2>
       <p id="aboutMeDescription" class="mt-6 text-lg text-gray-400 delay-500 section-text">
         Hi! I'm a **self-taught DevOps, Cybersecurity, and Hardware Engineer** with a passion for solving complex problems.
       </p>
@@ -208,22 +354,12 @@
     </div>
   </section>
 
-  <!-- Like Button -->
-  <section class="py-20 text-center">
-    <button id="likeBtn" class="btn-effect hover:bg-purple-700 hover:text-white transition delay-200">
-      Like This Post
-    </button>
-  </section>
-
-  <!-- Rating System -->
-  <section id="rateMe" class="py-20 text-center">
-    <h3 class="text-3xl font-semibold text-purple-400 mb-8">Rate Me</h3>
-    <div class="flex justify-center">
-      <span class="star" data-value="1">&#9733;</span>
-      <span class="star" data-value="2">&#9733;</span>
-      <span class="star" data-value="3">&#9733;</span>
-      <span class="star" data-value="4">&#9733;</span>
-      <span class="star" data-value="5">&#9733;</span>
+  <!-- Contact Information Section -->
+  <section id="contact" class="py-20 px-4 sm:px-6 md:px-8 bg-gray-900">
+    <div class="max-w-4xl mx-auto text-center text-gray-400">
+      <h3 class="text-3xl font-semibold text-green-400 mb-8">Contact Me</h3>
+      <p class="mb-4">📞 Phone: <span class="text-white">+254702250123</span></p>
+      <p class="mb-4">✉️ Email: <a href="mailto:innocentwise123@gmail.com" class="text-green-400 hover:text-green-300">innocentwise123@gmail.com</a></p>
     </div>
   </section>
 
@@ -231,7 +367,6 @@
   <footer class="bg-gray-900 py-8 text-center text-gray-400">
     <p>&copy; 2024 Innocent Mwea | All rights reserved</p>
   </footer>
-
   <script>
     // Rating Stars Functionality
     const stars = document.querySelectorAll('.star');
