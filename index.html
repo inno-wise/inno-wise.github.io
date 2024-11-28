@@ -345,7 +345,6 @@
       });
     });
   });
-  // Function to implement typing effect
 
   // Function to implement typing effect
   function typeWriter(elementId, speed) {
@@ -353,21 +352,11 @@
     const text = element.innerHTML;
     element.innerHTML = ""; // Clear the text initially
     let index = 0;
-    let lineBreak = false;
 
     function type() {
       if (index < text.length) {
-        const currentChar = text.charAt(index);
-        
-        if (currentChar === "<" && text.slice(index, index + 4) === "<br>") {
-          // Handle <br> tag for line breaks
-          element.innerHTML += "<br>";
-          index += 4; // Skip over the <br> tag
-        } else {
-          element.innerHTML += currentChar;
-          index++;
-        }
-        
+        element.innerHTML += text.charAt(index);
+        index++;
         setTimeout(type, speed); // Call the function recursively with the delay
       }
     }
@@ -379,7 +368,7 @@
   window.onload = () => {
     typeWriter("typingEffect", 100); // Speed of typing (100ms)
   };
-</script>
+
 
 </script>
 
