@@ -353,9 +353,13 @@
     let index = 0;
 
     function type() {
-      if (index < text.length) {
-        element.innerHTML += text.charAt(index);
-        index++;
+       if (index < text.length) {
+        const currentChar = text.charAt(index);
+        
+        if (currentChar === "<" && text.slice(index, index + 4) === "<br>") {
+          // Handle <br> tag for line breaks
+          element.innerHTML += "<br>";
+          index += 4; // Skip over the <br> tag
         setTimeout(type, speed); // Call the function recursively with the delay
       }
     }
