@@ -268,6 +268,64 @@
         color: #00ff00; /* Change text color to green */
       }
     }
+    /* projects */
+  #projects {
+    padding: 40px 20px;
+    background-color: #252525;
+    color: #fff;
+    text-align: center;
+  }
+
+  #projects h2 {
+    font-size: 2.5rem;
+    color: tomato;
+    margin-bottom: 30px;
+  }
+
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .project-card {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .project-card h3 {
+    font-size: 1.8rem;
+    color: tomato;
+  }
+
+  .project-card p {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin: 15px 0;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    color: tomato;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+
+  .project-link:hover {
+    background-color: tomato;
+    color: #fff;
+  }
+
+  .project-link i {
+    margin-right: 10px;
+  }
   </style>
 </head>
 
@@ -284,7 +342,7 @@
     <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
     <li><a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a></li>
     <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
-    <li><a href="home.html" download><i class="fas fa-download"></i> Download My CV</a></li>
+    <li><a href="nice.avif" download><i class="fas fa-download"></i> Download My CV</a></li>
   </ul>
 </nav>
 
@@ -313,7 +371,47 @@
 <section id="contact" style="background-color: #252525; padding: 50px 20px; border-radius: 10px; margin-top: 50px;">
   <h2 style="color: tomato; text-align: center; font-size: 2rem;">Contact Me</h2>
   <p style="color: #fff; text-align: center; margin-bottom: 20px;">Feel free to reach out for inquiries or collaborations.</p>
-  
+  <br><hr>
+  <section id="projects">
+  <h2><i class="fas fa-laptop-code"></i> My Projects</h2>
+  <div class="project-list">
+    <!-- Garage Web -->
+    <div class="project-card">
+      <h3><i class="fas fa-cogs"></i> Garage Web</h3>
+      <p>A web application for managing garage operations.</p>
+      <a href="https://inno-wise.github.io/nut50/" target="_blank" class="project-link">
+        <i class="fas fa-external-link-alt"></i> Visit Project
+      </a>
+    </div>
+
+    <!-- Music Web -->
+    <div class="project-card">
+      <h3><i class="fas fa-music"></i> Music Web</h3>
+      <p>A music streaming platform web app.</p>
+      <a href="https://inno-wise.github.io/effective-octo-palm-tree/" target="_blank" class="project-link">
+        <i class="fas fa-external-link-alt"></i> Visit Project
+      </a>
+    </div>
+
+    <!-- Other Private Sites -->
+    <div class="project-card">
+      <h3><i class="fas fa-shield-alt"></i> Private Site 1</h3>
+      <p>A private web project.</p>
+      <a href="#" target="_blank" class="project-link">
+        <i class="fas fa-external-link-alt"></i> Visit Project
+      </a>
+    </div>
+
+    <div class="project-card">
+      <h3><i class="fas fa-shield-alt"></i> Private Site 2</h3>
+      <p>A private web project.</p>
+      <a href="#" target="_blank" class="project-link">
+        <i class="fas fa-external-link-alt"></i> Visit Project
+      </a>
+    </div>
+  </div>
+</section>
+<br>  
   <form action="#" method="POST" style="max-width: 600px; margin: 0 auto;">
     <div style="margin-bottom: 20px;">
       <label for="name" style="color: #fff; display: block;">Name</label>
