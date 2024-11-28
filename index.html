@@ -172,6 +172,15 @@
       color: tomato;
       font-size: 1.1rem;
     }
+     .text-mono {
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #typingEffect {
+    border-right: 2px solid #fff; /* Cursor effect */
+    padding-right: 5px;
+    display: inline-block;
+  }
   </style>
 </head>
 
@@ -192,7 +201,8 @@
 
   <!-- Hero Section -->
   <section id="hero">
-    <h1>Welcome to My Portfolio</h1>
+    <h1><span id="typingEffect" class="text-mono text-gray-light-mktg">Welcome to Innocent Mwea!<br>Let’s begin the adventure</span>
+</h1>
     <p>Explore my work and projects.</p>
   </section>
 
@@ -332,6 +342,28 @@
       });
     });
   });
+  // Function to implement typing effect
+  function typeWriter(elementId, speed) {
+    const element = document.getElementById(elementId);
+    const text = element.innerHTML;
+    element.innerHTML = ""; // Clear the text initially
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        element.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, speed); // Call the function recursively with the delay
+      }
+    }
+
+    type(); // Start typing
+  }
+
+  // Call the function when the page loads
+  window.onload = () => {
+    typeWriter("typingEffect", 100); // Speed of typing (100ms)
+  };
 </script>
 
 
