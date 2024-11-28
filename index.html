@@ -25,7 +25,8 @@
       padding: 0;
       background-color: #2b2b2b;
       color: #fff;
-      overflow: hidden;
+      overflow-x: hidden;
+      min-height: 100vh;
     }
 
     a {
@@ -184,7 +185,7 @@
   }
     /* Glowing text effect with different shades of tomato */
     #glowTitle {
-      font-size: 1.5rem;
+      font-size: 1rem;
       color: #fff;
       font-family: 'Arial', sans-serif;
       text-align: center;
@@ -501,9 +502,9 @@
         move: { enable: true, speed: 6, direction: "none" }
       }
     });
-  </script>
+
 <!-- Disable Inspection Script with Notification -->
-<script>
+
   // Function to display the notification
   function showAdminAccessNotification() {
     alert("This site requires admin access to inspect.");
@@ -559,10 +560,17 @@
     typeWriter("typingEffect", 100); // Speed of typing (100ms)
   };
 
-
+// This code enables smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
 </script>
-
-
 </body>
 
 </html>
