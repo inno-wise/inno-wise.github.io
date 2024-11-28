@@ -181,31 +181,93 @@
     padding-right: 5px;
     display: inline-block;
   }
-  #3dTitle {
-    font-size: 3rem;
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    position: relative;
-    display: inline-block;
-    transform: perspective(500px) rotateX(15deg) rotateY(-15deg); /* 3D Perspective */
-    transition: transform 0.5s, text-shadow 0.5s;
-  }
+    /* Glowing text effect with different shades of tomato */
+    #glowTitle {
+      font-size: 3rem;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      text-shadow: 
+        0 0 5px rgba(255, 99, 71, 0.5), /* Light tomato */
+        0 0 10px rgba(255, 99, 71, 0.7), /* Medium tomato */
+        0 0 15px rgba(255, 99, 71, 0.8), /* Bright tomato */
+        0 0 20px rgba(255, 99, 71, 1), /* Strong tomato */
+        0 0 25px rgba(255, 99, 71, 1); /* Deep tomato */
+      animation: glowColorChange 4s infinite alternate, flicker 1.5s infinite alternate;
+    }
 
-  #3dTitle i {
-    margin-right: 10px;
-    color: #f39c12; /* Gold color for icon */
-  }
+    /* Styling for the icon */
+    #glowTitle i {
+      margin-right: 10px;
+      color: #ff6347; /* Tomato color for the icon */
+    }
 
-  #3dTitle:hover {
-    transform: perspective(500px) rotateX(0deg) rotateY(0deg) scale(1.1); /* Hover effect for more depth */
-    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5), -4px -4px 6px rgba(0, 0, 0, 0.5); /* Shadow for realism */
-  }
+    /* Glowing text effect on hover */
+    #glowTitle:hover {
+      text-shadow: 
+        0 0 20px rgba(255, 99, 71, 1), 
+        0 0 30px rgba(255, 99, 71, 0.9), 
+        0 0 40px rgba(255, 99, 71, 0.8), 
+        0 0 50px rgba(255, 99, 71, 1);
+      transform: scale(1.1); /* Slightly enlarges the text */
+    }
 
-  #3dTitle:active {
-    transform: perspective(500px) rotateX(5deg) rotateY(-5deg) scale(1); /* Active effect */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Slight shadow on click */
-  }
+    /* Light flicker effect */
+    @keyframes flicker {
+      0% {
+        text-shadow: 
+          0 0 5px rgba(255, 99, 71, 0.5), 
+          0 0 10px rgba(255, 99, 71, 0.7), 
+          0 0 15px rgba(255, 99, 71, 0.8);
+      }
+      50% {
+        text-shadow: 
+          0 0 20px rgba(255, 99, 71, 1), 
+          0 0 30px rgba(255, 99, 71, 0.9), 
+          0 0 40px rgba(255, 99, 71, 0.8);
+      }
+      100% {
+        text-shadow: 
+          0 0 5px rgba(255, 99, 71, 0.5), 
+          0 0 10px rgba(255, 99, 71, 0.7), 
+          0 0 15px rgba(255, 99, 71, 0.8);
+      }
+    }
+
+    /* Animation to change the glow color after 4 seconds */
+    @keyframes glowColorChange {
+      0% {
+        text-shadow: 
+          0 0 5px rgba(255, 99, 71, 0.5), 
+          0 0 10px rgba(255, 99, 71, 0.7), 
+          0 0 15px rgba(255, 99, 71, 0.8),
+          0 0 20px rgba(255, 99, 71, 1),
+          0 0 25px rgba(255, 99, 71, 1);
+        color: #fff;
+      }
+      50% {
+        text-shadow: 
+          0 0 5px rgba(255, 165, 0, 0.5), /* Orange glow */
+          0 0 10px rgba(255, 165, 0, 0.7), 
+          0 0 15px rgba(255, 165, 0, 0.8),
+          0 0 20px rgba(255, 165, 0, 1),
+          0 0 25px rgba(255, 165, 0, 1); /* Strong orange glow */
+        color: #ff7f00; /* Change text color to orange */
+      }
+      100% {
+        text-shadow: 
+          0 0 5px rgba(0, 255, 0, 0.5), /* Green glow */
+          0 0 10px rgba(0, 255, 0, 0.7), 
+          0 0 15px rgba(0, 255, 0, 0.8),
+          0 0 20px rgba(0, 255, 0, 1),
+          0 0 25px rgba(0, 255, 0, 1); /* Strong green glow */
+        color: #00ff00; /* Change text color to green */
+      }
+    }
   </style>
 </head>
 
@@ -215,7 +277,7 @@
 
   <!-- Navigation -->
   <nav>
-   <h1 id="3dTitle"><i class="fas fa-briefcase"></i> Innocent Mwea</h1>
+   <h1 id="glowTitle"><i class="fas fa-code"></i> Innocenty</h1>
     <ul class="nav-links">
       <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
       <li><a href="#commentsSection"><i class="fas fa-comments"></i> Comments</a></li>
