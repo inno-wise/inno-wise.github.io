@@ -329,6 +329,60 @@
   .project-link i {
     margin-right: 10px;
   }
+
+    /* Blog Section Styles */
+#blogSection {
+  background-color: #252525;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+#blogSection h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: tomato;
+  margin-bottom: 30px;
+}
+
+.blog-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.blog-item {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.blog-item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.blog-item h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: tomato;
+}
+
+.blog-item p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.blog-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.blog-item a:hover h3 {
+  color: #f4a261;
+}
+
   </style>
 </head>
 
@@ -412,6 +466,62 @@
   </div>
 </section>
 <br> <hr> <br>  
+
+  <!-- Blog Section -->
+<section id="blogSection">
+  <h2><i class="fas fa-blog"></i> Blog</h2>
+  <div class="blog-links">
+    <div class="blog-item">
+      <a href="https://inno-wise.github.io/mydiary/" target="_blank">
+        <h3>All Blogs</h3>
+        <p>Explore all my blog posts.</p>
+      </a>
+    </div>
+    <div class="blog-item">
+      <a href="https://inno-wise.github.io/mydiary/blogs/linux.html" target="_blank">
+        <h3>CLI</h3>
+        <p>Posts about Linux CLI and commands.</p>
+      </a>
+    </div>
+    <div class="blog-item">
+      <a href="https://inno-wise.github.io/mydiary/blogs/blackhat.html" target="_blank">
+        <h3>Grey Hat</h3>
+        <p>Insights into grey hat security practices.</p>
+      </a>
+    </div>
+    <div class="blog-item">
+      <a href="https://inno-wise.github.io/mydiary/blogs/websecurity.html" target="_blank">
+        <h3>Web Security</h3>
+        <p>Latest in web security trends and practices.</p>
+      </a>
+    </div>
+    <div class="blog-item">
+      <a href="https://inno-wise.github.io/mydiary/blogs/database.html" target="_blank">
+        <h3>Databases</h3>
+        <p>Posts on databases, management, and optimization.</p>
+      </a>
+    </div>
+    <div class="blog-item">
+      <a href="https://inno-wise.github.io/mydiary/blogs/pythondevops.html" target="_blank">
+        <h3>DevOps, AI, and ML</h3>
+        <p>Blog posts about DevOps, AI, and machine learning.</p>
+      </a>
+    </div>
+    <div class="blog-item">
+      <a href="https://inno-wise.github.io/mydiary/blogs/newspaper.html" target="_blank">
+        <h3>Newspapers and PDFs</h3>
+        <p>Blogs related to newspapers and PDF manipulation.</p>
+      </a>
+    </div>
+    <div class="blog-item">
+      <a href="https://inno-wise.github.io/mydiary/blogs/coffee.html" target="_blank">
+        <h3>Kofy</h3>
+        <p>Everything related to coffee and culture.</p>
+      </a>
+    </div>
+  </div>
+</section>
+<br><hr><br>
 <!-- Contact Section -->
 <section id="contact" style="background-color: #252525; padding: 50px 20px; border-radius: 10px; margin-top: 50px;">
   <h2 style="color: tomato; text-align: center; font-size: 2rem;">Contact Me</h2>
