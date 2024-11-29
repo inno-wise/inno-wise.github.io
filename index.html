@@ -613,8 +613,7 @@
     <button type="submit" style="background-color: tomato; color: #fff; padding: 10px 20px; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s;">
       Send Message
     </button>
-  </form>
-</section>
+  </form>
 
 <br>  <br>  
   <!-- Footer -->
@@ -714,6 +713,18 @@
       });
     });
   });
+
+
+//
+
+const words = ["DevOps Engineer", "Linux Enthusiast", "Web Developer", "Automation Expert"];
+let i = 0;
+
+setInterval(() => {
+  document.getElementById("typingEffect").textContent = words[i];
+  i = (i + 1) % words.length;
+}, 3000);
+
 
   // Function to implement typing effect
   function typeWriter(elementId, speed) {
