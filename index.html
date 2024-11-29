@@ -432,6 +432,160 @@
   color: #f4a261;
 }
 
+/* Skills Section Styling */
+#skills {
+  background-color: #252525;
+  color: #fff;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin: 50px 0;
+  text-align: center;
+}
+
+#skills h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: tomato;
+  position: relative;
+  overflow: hidden;
+}
+
+#skills h2::before,
+#skills h2::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  background: tomato;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+#skills h2::before {
+  left: 0;
+  transform: translate(-100%, -50%);
+}
+
+#skills h2::after {
+  right: 0;
+  transform: translate(100%, -50%);
+}
+
+#skills h2:hover::before {
+  transform: translate(0, -50%);
+}
+
+#skills h2:hover::after {
+  transform: translate(0, -50%);
+}
+
+#skills ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+#skills li {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 20px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+#skills li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+#skills li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+#skills li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+#skills li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+#skills li:nth-child(5) {
+  animation-delay: 1s;
+}
+
+#skills li:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+#skills li:nth-child(7) {
+  animation-delay: 1.4s;
+}
+
+#skills li::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: tomato;
+  left: 0;
+  top: 0;
+  transform: scaleY(0);
+  transition: transform 0.4s ease-in-out;
+}
+
+#skills li:hover::before {
+  transform: scaleY(1);
+}
+
+#skills li i {
+  margin-right: 10px;
+  color: tomato;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+#skills li:hover i {
+  color: #ff6347; /* Slightly lighter tomato */
+}
+
+#skills strong {
+  color: #fff;
+  position: relative;
+}
+
+#skills strong::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: tomato;
+  transition: width 0.3s ease;
+}
+
+#skills li:hover strong::after {
+  width: 100%;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
   </style>
 </head>
 
@@ -463,15 +617,15 @@
  
 
 <section id="skills">
-  <h2><i class="fas fa-brain"></i>Skills</h2>
+  <h2><i class="fas fa-brain"></i> My Skills</h2>
   <ul>
-    <li><strong>DevOps:</strong> Jenkins, Docker, Kubernetes, Terraform</li>
-    <li><strong>Programming:</strong> Python, JavaScript, C</li>
-    <li><strong>Linux:</strong> Bash scripting, Server Management, Kali Linux</li>
-    <li><strong>Web Development:</strong> HTML, CSS, UX/UI</li>
-    <li><strong>Databases:</strong> MySQL, PostgreSQL</li>
-    <li><strong>Networking:</strong> Network design, troubleshooting</li>
-    <li><strong>SEO:</strong> Optimizing content for search engines</li>
+    <li><i class="fas fa-tools"></i> <strong>DevOps:</strong> Jenkins, Docker, Kubernetes, Terraform</li>
+    <li><i class="fas fa-code"></i> <strong>Programming:</strong> Python, JavaScript, C</li>
+    <li><i class="fas fa-terminal"></i> <strong>Linux:</strong> Bash scripting, Server Management, Kali Linux</li>
+    <li><i class="fas fa-laptop-code"></i> <strong>Web Development:</strong> HTML, CSS, UX/UI</li>
+    <li><i class="fas fa-database"></i> <strong>Databases:</strong> MySQL, PostgreSQL</li>
+    <li><i class="fas fa-network-wired"></i> <strong>Networking:</strong> Network design, troubleshooting</li>
+    <li><i class="fas fa-search"></i> <strong>SEO:</strong> Optimizing content for search engines</li>
   </ul>
 </section>
 
