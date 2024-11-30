@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps Mastery</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+  body {
+h1, h2, h3 {
+  color: tomato;
+}
+p, .pros-cons{
+  color: white;
+}
+/* Overflow handling */
+.card .content {
+  max-height: 3rem;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.card.expanded .content {
+  max-height: 20rem; /* Adjust based on content size */
+}
+
+/* Buttons */
+.toggle-content {
+  background: none;
+  color: tomato;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+  
+  body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+  background-color: #0d1117;
+}
+
+
+/* Animated Background */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0d1117;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.animated-background::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, tomato 0%, transparent 70%);
+  animation: spin 10s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ff6347;
+}
+
+/* Section Styling */
+section {
+  padding: 20px;
+  margin: 20px;
+}
+
+.tool-container, .install-guide {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tool-card, .install-guide pre {
+  background-color: #161b22;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.tool-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.tool-card h3 {
+  font-size: 1.5rem;
+}
+
+/* Buttons */
+.like-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: tomato;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.like-btn:hover {
+  background-color: #ff6347;
+}
+    
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+  </style>
+  </head>
+<body>
+  <div class="animated-background"></div>
+  <header>
+    <div class="header-content">
+      <h1 class="title"><i class="fas fa-cogs"></i> DevOps Mastery</h1>
+      <p class="subtitle"><i class="fas fa-server"></i> Accelerate Your Development Workflow</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Introduction Section -->
+    <section class="intro">
+      <h2><i class="fas fa-lightbulb"></i> What is DevOps?</h2>
+      <p>
+        DevOps bridges the gap between software development and IT operations by fostering collaboration, automation, 
+        and continuous delivery. It helps teams deliver high-quality software faster and more reliably.
+      </p>
+    </section>
+
+    <!-- Best Practices Section -->
+    <section class="best-practices">
+      <h2><i class="fas fa-thumbs-up"></i> Best Practices for DevOps</h2>
+      <div class="card">
+        <h3>1. Use Infrastructure as Code (IaC)</h3>
+        <p class="content">
+          Treat your infrastructure the same way you treat your codebase. Use tools like Terraform or AWS CloudFormation 
+          to provision resources declaratively and consistently.
+        </p>
+        <button class="toggle-content"><i class="fas fa-chevron-down"></i> Show More</button>
+      </div>
+      <div class="card">
+        <h3>2. Automate Testing</h3>
+        <p class="content">
+          Integrate automated testing at every stage of the pipeline. This ensures bugs are caught early and helps maintain 
+          code quality.
+        </p>
+        <button class="toggle-content"><i class="fas fa-chevron-down"></i> Show More</button>
+      </div>
+      <div class="card">
+        <h3>3. Monitor Everything</h3>
+        <p class="content">
+          Use tools like Prometheus and Grafana to monitor the health and performance of your systems, applications, and pipelines.
+        </p>
+        <button class="toggle-content"><i class="fas fa-chevron-down"></i> Show More</button>
+      </div>
+    </section>
+
+    <!-- Pros and Cons Section -->
+    <section class="pros-cons">
+      <h2><i class="fas fa-balance-scale"></i> Pros and Cons of DevOps</h2>
+      <div class="card">
+        <h3><i class="fas fa-check"></i> Pros</h3>
+        <ul>
+          <li>Faster time-to-market for software.</li>
+          <li>Improved collaboration between teams.</li>
+          <li>Better scalability and reliability of systems.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-times"></i> Cons</h3>
+        <ul>
+          <li>Initial setup can be complex and resource-intensive.</li>
+          <li>Requires cultural shifts and training within teams.</li>
+          <li>Over-reliance on automation tools can lead to challenges.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Key Tools Section -->
+    <section class="tools">
+      <h2><i class="fas fa-toolbox"></i> Key DevOps Tools</h2>
+      <div class="tool-container">
+        <!-- Individual tool cards -->
+        <div class="tool-card">
+          <h3><i class="fab fa-docker"></i> Docker</h3>
+          <p>
+            A platform for creating, deploying, and managing containers that package applications with their dependencies.
+          </p>
+          <button class="like-btn" data-likes="13000"><i class="fas fa-thumbs-up"></i> <span>13k</span> Likes</button>
+        </div>
+        <div class="tool-card">
+          <h3><i class="fas fa-code-branch"></i> Git</h3>
+          <p>
+            A version control system that enables teams to collaborate on code and track changes efficiently.
+          </p>
+          <button class="like-btn" data-likes="13000"><i class="fas fa-thumbs-up"></i> <span>13k</span> Likes</button>
+        </div>
+        <div class="tool-card">
+          <h3><i class="fas fa-play-circle"></i> Jenkins</h3>
+          <p>
+            An automation server used for continuous integration (CI) and continuous delivery (CD) pipelines.
+          </p>
+          <button class="like-btn" data-likes="13000"><i class="fas fa-thumbs-up"></i> <span>13k</span> Likes</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 DevOps Mastery | Empowering Developers <i class="fas fa-laptop-code"></i></p>
+  </footer>
+
+  <script>
+  // Toggle content visibility
+const toggleButtons = document.querySelectorAll('.toggle-content');
+
+toggleButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const card = button.parentElement;
+    card.classList.toggle('expanded');
+    button.innerHTML = card.classList.contains('expanded')
+      ? '<i class="fas fa-chevron-up"></i> Show Less'
+      : '<i class="fas fa-chevron-down"></i> Show More';
+  });
+});
+
+// Like button functionality
+const likeButtons = document.querySelectorAll('.like-btn');
+
+likeButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const currentLikes = parseInt(button.getAttribute('data-likes'), 10);
+    const newLikes = currentLikes + 1;
+    button.setAttribute('data-likes', newLikes);
+    button.querySelector('span').textContent = newLikes.toLocaleString();
+  });
+});
+  </script>
+</body>
+</html>
