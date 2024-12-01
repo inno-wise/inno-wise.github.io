@@ -246,24 +246,6 @@ h3, a{
         DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It emphasizes collaboration, automation, and continuous delivery to streamline workflows and accelerate delivery cycles.
       </p>
     </section>
-  <!--
-  <header>
-    <div class="header-content">
-      <h1 class="title"><i class="fas fa-cogs"></i> DevOps Mastery</h1>
-      <p class="subtitle"><i class="fas fa-server"></i> Accelerate Your Development Workflow</p>
-    </div>
-  </header>
-
-  <main>
-    <!-- Introduction Section 
-    <section class="intro">
-      <h2><i class="fas fa-lightbulb"></i> What is DevOps?</h2>
-      <p>
-        DevOps bridges the gap between software development and IT operations by fostering collaboration, automation, 
-        and continuous delivery. It helps teams deliver high-quality software faster and more reliably.
-      </p>
-    </section>
-  -->
 
     <!-- Best Practices Section -->
     <section class="best-practices">
@@ -377,6 +359,13 @@ h3, a{
           </p>
           <button class="like-btn" data-likes="13000"><i class="fas fa-thumbs-up"></i> <span>13k</span> Likes</button>
         </div>
+            <div class="tool-card">
+          <h3><i class="fas fa-network-wired"></i> Kubernetes</h3>
+          <p>
+            An orchestration tool for managing and scaling containerized applications.
+          </p>
+          <button class="like-btn" data-likes="13000"><i class="fas fa-thumbs-up"></i> <span>13k</span> Likes</button>
+        </div>
       </div>
     </section>
     
@@ -408,6 +397,19 @@ Linux:
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
         </pre>
         <button class="copy-btn" data-content="wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key"><i class="fas fa-copy"></i> Copy Command</button>
+      </div>
+      <div class="install-card">
+        
+        <h3><i class="fas fa-network-wired"></i> Kubernetes Installation</h3>
+        <p><strong>Using Minikube (Linux/Windows/Mac):</strong></p>
+        <div class="code-block">
+          <pre>
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+minikube start
+          </pre>
+          <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+        </div>
       </div>
     </section>
   </main>
