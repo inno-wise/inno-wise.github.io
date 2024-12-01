@@ -151,6 +151,82 @@ body {
   </header>
 
   <main>
+    <section id="cloud-hypervisors" class="content-section">
+  <h1>Explore My Cloud Hypervisors</h1>
+  <p>
+    Virtualization has transformed modern IT infrastructure, making cloud-based hypervisors essential for efficiency, flexibility, and scalability. Below is a list of cloud hypervisors tailored to meet specific needs, from development to enterprise-grade workloads.
+  </p>
+
+  <h2>Available Cloud Hypervisors</h2>
+  <ul>
+    <li>
+      <i class="fas fa-cloud"></i> <strong>General Purpose Hypervisor</strong>
+      <p>
+        Designed for everyday virtualization tasks, this hypervisor is perfect for running multiple operating systems, creating isolated environments, and securely testing applications. Its versatility makes it a reliable solution for both personal and business use cases.
+      </p>
+      <p><strong>Use Cases:</strong> Hosting websites, running test environments, and general computing workloads.</p>
+      <a href="https://madeoftech.net/" target="_blank">Learn More</a>
+    </li>
+    <li>
+      <i class="fas fa-server"></i> <strong>High-Performance Compute Hypervisor</strong>
+      <p>
+        Built for resource-intensive applications, this hypervisor excels in workloads such as data processing, machine learning, and rendering. It ensures low latency and maximum CPU/GPU utilization, enabling seamless performance under demanding conditions.
+      </p>
+      <p><strong>Use Cases:</strong> Machine learning models, 3D rendering, big data analytics, and financial modeling.</p>
+      <a href="https://madeoftech.net/" target="_blank">Learn More</a>
+    </li>
+    <li>
+      <i class="fas fa-database"></i> <strong>Storage-Optimized Hypervisor</strong>
+      <p>
+        Specifically tailored for high-capacity storage and rapid data access, this hypervisor is ideal for database hosting, file servers, and archiving systems. It includes advanced storage management tools and high-speed I/O capabilities to ensure efficient data handling.
+      </p>
+      <p><strong>Use Cases:</strong> Hosting SQL/NoSQL databases, managing large-scale file storage, and backup solutions.</p>
+      <a href="https://madeoftech.net/" target="_blank">Learn More</a>
+    </li>
+    <li>
+      <i class="fas fa-laptop-code"></i> <strong>Development Sandbox Hypervisor</strong>
+      <p>
+        A lightweight and affordable hypervisor designed for developers. Quickly spin up VMs to test, debug, or sandbox applications without interfering with production environments. This hypervisor supports quick snapshots and rollbacks, making development iterations smooth and efficient.
+      </p>
+      <p><strong>Use Cases:</strong> Application testing, staging environments, and quick prototyping.</p>
+      <a href="https://madeoftech.net/" target="_blank">Learn More</a>
+    </li>
+  </ul>
+
+  <h2>Why Choose madeoftech Cloud Hypervisors?</h2>
+  <p>Each of my cloud hypervisors is designed with the following advantages:</p>
+  <ul>
+    <li><i class="fas fa-bolt"></i> <strong>High Performance:</strong> Optimized for maximum speed and reliability, regardless of workload size.</li>
+    <li><i class="fas fa-expand-arrows-alt"></i> <strong>Scalability:</strong> Dynamically allocate resources to meet changing demands with ease.</li>
+    <li><i class="fas fa-lock"></i> <strong>Robust Security:</strong> Advanced isolation techniques protect sensitive data and applications.</li>
+    <li><i class="fas fa-tools"></i> <strong>Ease of Use:</strong> Intuitive interfaces for deploying, managing, and monitoring virtual environments.</li>
+    <li><i class="fas fa-dollar-sign"></i> <strong>Cost Efficiency:</strong> Flexible pricing models ensure you only pay for what you use.</li>
+  </ul>
+
+  <h2>Real-World Scenarios</h2>
+  <p>
+    Not sure how these hypervisors fit into your workflow? Here are some real-world scenarios where my cloud hypervisors shine:
+  </p>
+  <ul>
+    <li><i class="fas fa-globe"></i> **Enterprise Workloads:** Use high-performance hypervisors for data centers and enterprise IT infrastructure.</li>
+    <li><i class="fas fa-code"></i> **Developer Pipelines:** Leverage development sandbox hypervisors for continuous integration (CI) pipelines and rapid prototyping.</li>
+    <li><i class="fas fa-database"></i> **Database Hosting:** Optimize data-driven applications with storage-focused hypervisors.</li>
+    <li><i class="fas fa-project-diagram"></i> **Microservices Architectures:** Combine containers and hypervisors for scalable, multi-cloud microservices deployments.</li>
+  </ul>
+
+  <h2>How to Get Started</h2>
+  <p>
+    Ready to explore the power of cloud virtualization? Click on the links above to learn more about each hypervisor, or <a href="https://madeoftech.net/contact" target="_blank">contact me</a> for personalized recommendations based on your specific requirements.
+  </p>
+
+  <h2>Additional Resources</h2>
+  <ul>
+    <li><i class="fas fa-book"></i> <a href="https://www.vmware.com/products.html" target="_blank">VMware Products Overview</a></li>
+    <li><i class="fas fa-cloud"></i> <a href="https://cloud.google.com/compute" target="_blank">Google Cloud Compute Engine</a></li>
+    <li><i class="fas fa-server"></i> <a href="https://azure.microsoft.com/en-us/products/virtual-machines/" target="_blank">Microsoft Azure Virtual Machines</a></li>
+    <li><i class="fas fa-laptop"></i> <a href="https://aws.amazon.com/ec2/" target="_blank">Amazon EC2 (Elastic Compute Cloud)</a></li>
+  </ul>
+</section>
     <!-- Type 1 Hypervisor Section -->
     <section id="type1" class="content-section">
       <h1>What is a Type 1 Hypervisor?</h1>
@@ -337,93 +413,4 @@ body {
     <section id="comparison" class="content-section">
   <h1>Hypervisors vs. Docker: A Detailed Comparison</h1>
   <p>
-    Hypervisors and Docker containers are two distinct virtualization technologies that cater to different needs in computing environments. Understanding their differences can help you choose the right tool for your projects.
-  </p>
-
-  <h2>Key Differences</h2>
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Feature</th>
-        <th>Hypervisors</th>
-        <th>Docker (Containers)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><i class="fas fa-archway"></i> <strong>Architecture</strong></td>
-        <td>Hypervisors virtualize hardware, allowing multiple operating systems (VMs) to run on the same physical machine. Each VM includes a full OS and its own kernel.</td>
-        <td>Docker uses containerization, which virtualizes only the application layer. Containers share the host OS kernel but isolate applications and dependencies in lightweight environments.</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-memory"></i> <strong>Resource Usage</strong></td>
-        <td>VMs are resource-intensive because they require dedicated memory, storage, and CPU resources for each virtualized OS.</td>
-        <td>Containers are lightweight, sharing the host OS kernel, which reduces memory and CPU overhead.</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-rocket"></i> <strong>Startup Time</strong></td>
-        <td>VMs take minutes to boot because they initialize an entire OS.</td>
-        <td>Containers start almost instantly since they use the already running host OS kernel.</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-lock"></i> <strong>Isolation</strong></td>
-        <td>VMs provide strong isolation as each runs in a completely separate environment, making them suitable for high-security applications.</td>
-        <td>Containers offer less isolation since they share the host kernel. However, tools like namespaces and cgroups enhance security and isolation.</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-cogs"></i> <strong>Use Cases</strong></td>
-        <td>Hypervisors are ideal for running multiple operating systems, managing legacy applications, and hosting full-stack development environments.</td>
-        <td>Docker is best for deploying microservices, running modern applications, and streamlining CI/CD pipelines in DevOps workflows.</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-cube"></i> <strong>Examples</strong></td>
-        <td>VMware ESXi, Microsoft Hyper-V, Xen, and KVM.</td>
-        <td>Docker, Podman, and Kubernetes for orchestration.</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2>Advantages of Hypervisors</h2>
-  <ul>
-    <li><i class="fas fa-check-circle"></i> Run multiple operating systems simultaneously (e.g., Windows and Linux).</li>
-    <li><i class="fas fa-check-circle"></i> Support legacy applications requiring specific OS environments.</li>
-    <li><i class="fas fa-check-circle"></i> Provide high levels of isolation, critical for enterprise and secure workloads.</li>
-  </ul>
-
-  <h2>Advantages of Docker</h2>
-  <ul>
-    <li><i class="fas fa-check-circle"></i> Faster deployments with lightweight containers.</li>
-    <li><i class="fas fa-check-circle"></i> Simplified development pipelines for microservices.</li>
-    <li><i class="fas fa-check-circle"></i> Efficient resource utilization, especially in cloud environments.</li>
-    <li><i class="fas fa-check-circle"></i> Scalability and portability across different platforms.</li>
-  </ul>
-
-  <h2>Can Hypervisors and Docker Work Together?</h2>
-  <p>
-    Yes! Combining hypervisors and Docker allows organizations to leverage the best of both worlds. For example, Docker containers can run inside VMs for added security and flexibility. This is common in hybrid cloud environments where hypervisors provide infrastructure while containers handle application deployment.
-  </p>
-  <h3>Benefits of Combining Hypervisors and Docker</h3>
-  <ul>
-    <li><i class="fas fa-layer-group"></i> <strong>Enhanced Security:</strong> Containers within VMs ensure that any container breach is contained within the VM.</li>
-    <li><i class="fas fa-cloud"></i> <strong>Cloud Flexibility:</strong> Use VMs to deploy Docker containers across multi-cloud environments.</li>
-    <li><i class="fas fa-rocket"></i> <strong>Improved Performance:</strong> Containers speed up development and deployment while VMs provide system-level reliability.</li>
-  </ul>
-
-  <h2>Examples of Real-World Usage</h2>
-  <ul>
-    <li><i class="fas fa-building"></i> Enterprises use hypervisors like VMware ESXi to host multiple VMs running Docker containers for microservices architectures.</li>
-    <li><i class="fas fa-server"></i> Cloud providers like AWS, Azure, and Google Cloud Platform allow running Docker inside VMs for added isolation and scalability.</li>
-    <li><i class="fas fa-tools"></i> Developers use lightweight VMs (e.g., Ubuntu Server on VirtualBox) to test Docker containers locally before deploying to production environments.</li>
-  </ul>
-
-  <h2>Additional Learning Resources</h2>
-  <ul>
-    <li><i class="fas fa-link"></i> <a href="https://www.docker.com/" target="_blank">Official Docker Documentation</a></li>
-    <li><i class="fas fa-link"></i> <a href="https://www.vmware.com/products/esxi-and-esx.html" target="_blank">VMware ESXi Overview</a></li>
-    <li><i class="fas fa-link"></i> <a href="https://kubernetes.io/" target="_blank">Kubernetes: Container Orchestration</a></li>
-    <li><i class="fas fa-link"></i> <a href="https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/" target="_blank">Microsoft Hyper-V Documentation</a></li>
-  </ul>
-</section>
-  </main>
-
-  
+    Hypervisors and Docker containers are two distinct virtualization technologies that cater to different needs in computing environments. Understanding their differences can help you choose the right tool for your pr
