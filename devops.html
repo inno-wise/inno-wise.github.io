@@ -154,10 +154,99 @@ footer {
     opacity: 1;
   }
 }
+    
+/* Lifecycle Styling */
+.lifecycle-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.phase {
+  background: #1f2428;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1 1 calc(33% - 1rem);
+}
+
+/* Installation Section */
+.install-card {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #1f2428;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+pre {
+  background: #282c34;
+  color: #dcdcdc;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.copy-btn {
+  margin-top: 10px;
+  background: tomato;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: #ff4500;
+}
+    
+    header {
+  text-align: center;
+  padding: 20px;
+  background: #282c34;
+}
+
+h1, h2 {
+  color: tomato;
+}
+
+h3, a{
+  color: #ff6347;
+  text-decoration: none;
+}
+
+/* Lifecycle Styling */
+.lifecycle-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.phase {
+  background: #1f2428;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1 1 calc(33% - 1rem);
+}
+
   </style>
   </head>
 <body>
   <div class="animated-background"></div>
+    <header>
+    <div class="header-content">
+      <h1 class="title"><i class="fas fa-cogs"></i> DevOps Mastery</h1>
+      <p class="subtitle"><i class="fas fa-server"></i> Your Ultimate Guide to the DevOps Lifecycle</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Introduction Section -->
+    <section class="intro">
+      <h2><i class="fas fa-info-circle"></i> What is DevOps?</h2>
+      <p>
+        DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It emphasizes collaboration, automation, and continuous delivery to streamline workflows and accelerate delivery cycles.
+      </p>
+    </section>
+  <!--
   <header>
     <div class="header-content">
       <h1 class="title"><i class="fas fa-cogs"></i> DevOps Mastery</h1>
@@ -166,7 +255,7 @@ footer {
   </header>
 
   <main>
-    <!-- Introduction Section -->
+    <!-- Introduction Section 
     <section class="intro">
       <h2><i class="fas fa-lightbulb"></i> What is DevOps?</h2>
       <p>
@@ -174,6 +263,7 @@ footer {
         and continuous delivery. It helps teams deliver high-quality software faster and more reliably.
       </p>
     </section>
+  -->
 
     <!-- Best Practices Section -->
     <section class="best-practices">
@@ -201,6 +291,14 @@ footer {
         </p>
         <button class="toggle-content"><i class="fas fa-chevron-down"></i> Show More</button>
       </div>
+        <div class="card">
+        <h3>4. Command Line Interface(CLI)</h3>
+        <p class="content">
+          Get your hands dirty in <a href="#">Docker Cli </a>and <a href="#">Docker desktop</a>. <code>docker addition </code>Docker was developed to solve developement and operations problem, this is because if you are working with docker in your source code, its guaranteed that your project will work on all other devices, since its more secure.It runs under linux/unix hardware.
+          if your os is windows you can use <a href="#">(wsl) windows subsystem for linix</a> or else you can install a hypervisor 1 or 2 for a  <a href="#">Virtual Machine</a>. To learn about virtualisation <a href="#">click here</a>
+        </p>
+        <button class="toggle-content"><i class="fas fa-chevron-down"></i> Show More</button>
+      </div>
     </section>
 
     <!-- Pros and Cons Section -->
@@ -223,7 +321,36 @@ footer {
         </ul>
       </div>
     </section>
-
+  <!-- DevOps Lifecycle Section -->
+    <section class="lifecycle">
+      <h2><i class="fas fa-sync-alt"></i> The DevOps Lifecycle</h2>
+      <div class="lifecycle-container">
+        <div class="phase">
+          <h3><i class="fas fa-pencil-alt"></i> 1. Plan</h3>
+          <p>Gather requirements, create user stories, and design your application.</p>
+        </div>
+        <div class="phase">
+          <h3><i class="fas fa-code"></i> 2. Develop</h3>
+          <p>Write code collaboratively using tools like Git and code editors.</p>
+        </div>
+        <div class="phase">
+          <h3><i class="fas fa-check-circle"></i> 3. Build</h3>
+          <p>Compile and package code into deployable artifacts using CI/CD tools like Jenkins.</p>
+        </div>
+        <div class="phase">
+          <h3><i class="fas fa-truck-loading"></i> 4. Test</h3>
+          <p>Run automated tests to ensure code quality and performance.</p>
+        </div>
+        <div class="phase">
+          <h3><i class="fas fa-cloud-upload-alt"></i> 5. Release</h3>
+          <p>Deploy applications to staging or production environments.</p>
+        </div>
+        <div class="phase">
+          <h3><i class="fas fa-monitor"></i> 6. Monitor</h3>
+          <p>Track application performance and logs using tools like Prometheus and Grafana.</p>
+        </div>
+      </div>
+    </section>
     <!-- Key Tools Section -->
     <section class="tools">
       <h2><i class="fas fa-toolbox"></i> Key DevOps Tools</h2>
@@ -252,10 +379,41 @@ footer {
         </div>
       </div>
     </section>
+    
+    <!-- Installation Guide -->
+    <section class="installation">
+      <h2><i class="fas fa-download"></i> Installation Guide</h2>
+      <div class="install-card">
+        <h3><i class="fab fa-docker"></i> Docker Installation</h3>
+        <pre>
+Linux: 
+sudo apt-get install docker-ce
+Windows/Mac: Use official Docker Desktop installer.
+        </pre>
+        <button class="copy-btn" data-content="sudo apt-get install docker-ce"><i class="fas fa-copy"></i> Copy Command</button>
+      </div>
+      <div class="install-card">
+        <h3><i class="fas fa-code-branch"></i> Git Installation</h3>
+        <pre>
+Linux: 
+sudo apt-get install git
+Windows/Mac: Download Git from https://git-scm.com
+        </pre>
+        <button class="copy-btn" data-content="sudo apt-get install git"><i class="fas fa-copy"></i> Copy Command</button>
+      </div>
+      <div class="install-card">
+        <h3><i class="fas fa-play-circle"></i> Jenkins Installation</h3>
+        <pre>
+Linux: 
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+        </pre>
+        <button class="copy-btn" data-content="wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key"><i class="fas fa-copy"></i> Copy Command</button>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2024 DevOps Mastery | Empowering Developers <i class="fas fa-laptop-code"></i></p>
+    <p>&copy; 2024 madeoftech DevOps Mastery | Empowering Developers <i class="fas fa-laptop-code"></i></p>
   </footer>
 
   <script>
@@ -281,6 +439,18 @@ likeButtons.forEach((button) => {
     const newLikes = currentLikes + 1;
     button.setAttribute('data-likes', newLikes);
     button.querySelector('span').textContent = newLikes.toLocaleString();
+  });
+});
+
+// Copy Button Functionality
+const copyButtons = document.querySelectorAll('.copy-btn');
+
+copyButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const command = button.dataset.content;
+    navigator.clipboard.writeText(command).then(() => {
+      alert('Command copied to clipboard!');
+    });
   });
 });
   </script>
