@@ -682,7 +682,18 @@
   }
 }
 
-    /* Title Styling */
+/* Section Styling */
+#contact {
+  background-color: #ffe4e1; /* Light tomato background */
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(255, 99, 71, 0.2); /* Soft tomato shadow */
+  max-width: 1000px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* Title Styling */
 #contact h2 {
   font-size: 2rem;
   color: #d84e47; /* Tomato color for the title */
@@ -700,22 +711,27 @@
 #contact ul {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap; /* Wrap items to the next line if they overflow */
+  justify-content: space-around; /* Distribute items evenly */
 }
 
 #contact li {
   display: flex;
   align-items: center;
   font-size: 1.1rem;
-  margin: 15px 0;
+  margin: 15px;
   color: #555;
   font-family: 'Arial', sans-serif;
   transition: all 0.3s ease;
+  max-width: 200px; /* Limit the width of each list item */
+  text-align: left; /* Align the text properly */
 }
 
 #contact li i {
   font-size: 1.5rem;
   color: #ff6347; /* Tomato color for icons */
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 /* Link Styling */
@@ -731,7 +747,7 @@
 
 /* Hover Effect */
 #contact li:hover {
-  transform: translateX(5px);
+  transform: translateY(-5px); /* Slightly raise the item on hover */
   color: #8b0000; /* Darker shade of tomato when hovered */
   cursor: pointer;
 }
@@ -750,6 +766,7 @@
     font-size: 1rem;
   }
 }
+
   </style>
 </head>
 
