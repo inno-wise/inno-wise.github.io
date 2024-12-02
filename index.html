@@ -592,6 +592,30 @@
     transform: translateX(0);
   }
 }
+
+    /* Basic styling for the video */
+#myVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Custom styles for the background container */
+body {
+  background-color: #ff6347; /* Tomato color background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Optional additional shading for visual interest */
+#myVideo {
+  box-shadow: 0 4px 15px rgba(255, 99, 71, 0.6); /* Light tomato shadow around the video */
+  border-radius: 10px; /* Rounded corners for the video */
+}
+
   </style>
 </head>
 
@@ -750,6 +774,11 @@
   </div>
 </section>
 <br><hr><br>
+  <video id="myVideo" autoplay muted>
+  <source src="https://github.com/inno-wise/inno-wise.github.io/raw/refs/heads/maine/Launch%20LinkedIn%20Single%20Image%20Ad.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 <section id="skills">
   <h2><i class="fas fa-brain"></i> My Skills</h2>
@@ -956,6 +985,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     "https://linkedin.com/in/innocenty"
   ]
 }
+
+  // Get the video element
+const video = document.getElementById('myVideo');
+
+// Ensure the video is autoplayed and muted when the page loads
+video.autoplay = true;
+video.muted = true;
+
+// Optional: If you want to ensure autoplay and mute settings on page load
+window.addEventListener('load', () => {
+  video.play();  // Ensures video starts playing automatically (muted)
+});
+
 </script>
 </body>
 
