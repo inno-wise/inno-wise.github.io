@@ -607,6 +607,149 @@
   border-radius: 10px; /* Rounded corners for the video */
 }
 
+    /* Section Styling */
+#skills {
+  background-color: #ffe4e1; /* Light tomato background */
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(255, 99, 71, 0.2); /* Soft tomato shadow */
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+/* Title Styling */
+#skills h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #d84e47; /* Tomato color for the title */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+#skills h2 i {
+  margin-right: 10px;
+  color: #ff6347; /* Tomato icon color */
+}
+
+/* List Styling */
+#skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+#skills li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin: 15px 0;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+  transition: all 0.3s ease;
+}
+
+#skills li i {
+  font-size: 1.5rem;
+  color: #ff6347; /* Tomato color for icons */
+  margin-right: 15px;
+}
+
+/* Hover Effect */
+#skills li:hover {
+  transform: translateX(5px);
+  color: #8b0000; /* Darker shade of tomato when hovered */
+  cursor: pointer;
+}
+
+#skills li:hover i {
+  color: #ff4500; /* Darker tomato shade for icon hover */
+}
+
+/* Strong Text (Skill Names) */
+#skills strong {
+  font-weight: 600;
+  color: #ff6347; /* Tomato color for skill names */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #skills h2 {
+    font-size: 1.5rem;
+  }
+
+  #skills li {
+    font-size: 1rem;
+  }
+}
+
+    /* Title Styling */
+#contact h2 {
+  font-size: 2rem;
+  color: #d84e47; /* Tomato color for the title */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+#contact h2 i {
+  margin-right: 10px;
+  color: #ff6347; /* Tomato color for icon */
+}
+
+/* List Styling */
+#contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+#contact li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin: 15px 0;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+  transition: all 0.3s ease;
+}
+
+#contact li i {
+  font-size: 1.5rem;
+  color: #ff6347; /* Tomato color for icons */
+  margin-right: 15px;
+}
+
+/* Link Styling */
+#contact a {
+  text-decoration: none;
+  color: #ff6347; /* Tomato color for links */
+  transition: color 0.3s ease;
+}
+
+#contact a:hover {
+  color: #8b0000; /* Darker tomato shade for link hover */
+}
+
+/* Hover Effect */
+#contact li:hover {
+  transform: translateX(5px);
+  color: #8b0000; /* Darker shade of tomato when hovered */
+  cursor: pointer;
+}
+
+#contact li:hover i {
+  color: #ff4500; /* Darker tomato shade for icon hover */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #contact h2 {
+    font-size: 1.5rem;
+  }
+
+  #contact li {
+    font-size: 1rem;
+  }
+}
   </style>
 </head>
 
@@ -780,6 +923,7 @@
     <li><i class="fas fa-search"></i> <strong>SEO: </strong> Optimizing content for search engines</li>
   </ul>
 </section>
+
 <br>
 <!-- Contact Section -->
 <section id="contact" style="background-color: #252525; padding: 50px 20px; border-radius: 10px; margin-top: 50px;">
@@ -821,9 +965,32 @@
   <source src="https://github.com/inno-wise/inno-wise.github.io/raw/refs/heads/maine/Launch%20LinkedIn%20Single%20Image%20Ad.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2024 Innocent Mwea</p>
+    <section id="contact">
+  <h2><i class="fas fa-address-book"></i> Contact Me</h2>
+  <ul>
+    <li><i class="fas fa-envelope"></i> <a href="mailto:edu@madeoftech.net">edu@madeoftech.net</a></li>
+    <li><i class="fas fa-envelope"></i> <a href="mailto:innocentmwea@madeoftech.net">innocentmwea@madeoftech.net</a></li>
+    <li><i class="fas fa-phone-alt"></i> <a href="tel:+254702250123">+254702250123</a></li>
+    <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+    <li><i class="fab fa-x"></i> <a href="https://www.x.com" target="_blank">X (Formerly Twitter)</a></li>
+    <li><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/@madeofTechz" target="_blank">YouTube</a></li>
+    <li><i class="fab fa-tiktok"></i> <a href="https://www.tiktok.com" target="_blank">TikTok</a></li>
+    <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/+254702250123" target="_blank">WhatsApp</a></li>
+    <li><i class="fab fa-discord"></i> <a href="https://discord.com" target="_blank">Discord</a></li>
+    <li><i class="fas fa-globe"></i> <a href="https://www.madeoftech.net" target="_blank">Website</a></li>
+    <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+  </ul>
+</section>
+    <section id="video">
+  <video id="myVideo" autoplay muted loop>
+    <source src="https://github.com/inno-wise/inno-wise.github.io/raw/refs/heads/maine/LinkedIn%20Ad.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
   </footer>
 </section>
   <!-- Particle.js and Script -->
