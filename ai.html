@@ -307,10 +307,33 @@ footer .social-icons a:hover {
 </section>
 
     <!-- personal AI -->
+    <!-- personal AI -->
  <section id="personal AI">
 <div class="container">
         <h2><i class="fas fa-handshake"></i> Personal AI installation</h2>
 
+  <div class="installation-guide">
+    <h1>Ollama Installation Guide</h1>
+    <p>Follow the steps below to install Ollama:</p>
+    
+    <div class="code-block" id="installationCode">
+      curl -fsSL https://ollama.com/install.sh | sh
+    </div>
+       <h2>install the nvidia gpu for better processing</h2>
+     
+        <div class="code-block" id="installationCode">
+      ollama run llama2
+    </div>
+       <p>Chech on <a href="ollama.com/library">more models</a></p>
+          <div class="code-block" id="installationCode">
+      ollama run mistral
+    </div>
+      
+    <button class="copy-button" id="copyButton">
+      <i class="fas fa-copy"></i> Copy Command
+    </button>
+    <div class="success-message" id="successMessage">Command copied to clipboard!</div>
+  </div>
 </div>
 </section>
 </main>
@@ -345,6 +368,31 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     alert('Thank you for your message, ' + name + '!');
 });
 
+     document.getElementById('copyButton').addEventListener('click', function() {
+      // Get the text from the code block
+      const text = document.getElementById('installationCode').innerText;
+      
+      // Create a temporary textarea element to copy the text
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      
+      // Select and copy the text
+      textarea.select();
+      document.execCommand('copy');
+      
+      // Remove the textarea from the document
+      document.body.removeChild(textarea);
+      
+      // Show success message
+      const successMessage = document.getElementById('successMessage');
+      successMessage.style.display = 'block';
+      
+      // Hide the success message after 2 seconds
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 2000);
+    });
 </script>
 </body>
 </html>
