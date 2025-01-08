@@ -372,3 +372,12 @@ fabButton.addEventListener('click', () => {
 
 // 11-40 Additional Features...
 
+// Optional: Pause the marquee on hover
+const marquee = document.querySelector('.marquee ul');
+marquee.addEventListener('mouseover', () => {
+  marquee.style.animationPlayState = 'paused';
+});
+marquee.addEventListener('mouseout', () => {
+  marquee.style.animationPlayState = 'running';
+});
+
