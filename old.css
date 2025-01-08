@@ -1,0 +1,700 @@
+
+<!-- CSS for smooth scrolling on the whole page -->
+  html {
+    scroll-behavior: smooth;
+  }
+
+    /* Base Styles */
+    body {
+      font-family: Arial, sans-serif;
+       scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+      background-color: #2b2b2b;
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    /* Particles.js Container */
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensures particles stay behind the content */
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background-color: #1f1f1f;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      color: tomato;
+      display: flex;
+      align-items: center;
+    }
+
+    nav h1 i {
+      margin-right: 10px;
+      color: tomato;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: tomato;
+      padding: 5px 15px;
+      border-radius: 5px;
+      position: relative;
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      background-color: tomato;
+      color: #fff;
+    }
+
+    /* Hero Section */
+    #hero {
+      height: 100vh;
+      text-align: center;
+      padding-top: 20%;
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      color: tomato;
+    }
+
+    /* Comments Section */
+    #commentsSection {
+      background-color: #252525;
+      padding: 80px 70px;
+      border-radius: 10px;
+      margin: 50px;
+    }
+
+    #commentsSection h2 {
+      font-size: 2rem;
+      color: tomato;
+      text-align: center;
+    }
+
+    .comment {
+      background-color: #333;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border-left: 3px solid tomato;
+    }
+
+    .comment p {
+      margin: 0;
+      color: #fff;
+    }
+
+    /* Like and Subscribe Buttons */
+    .like-btn, .subscribe-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #fff;
+      background-color: tomato;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: all 0.3s;
+      margin: 5px;
+    }
+
+    .like-btn:hover, .subscribe-btn:hover {
+      transform: scale(1.1);
+      background-color: #e05c4f;
+    }
+
+    .like-btn i, .subscribe-btn i {
+      margin-right: 5px;
+    }
+
+    #likeCount {
+      font-size: 1.2rem;
+      color: tomato;
+      margin-left: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1f1f1f;
+      text-align: center;
+      padding: 10px;
+      color: #777;
+    }
+
+    footer p {
+      color: tomato;
+      font-size: 1.1rem;
+    }
+     .text-mono {
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #typingEffect {
+    border-right: 2px solid #fff; /* Cursor effect */
+    padding-right: 5px;
+    display: inline-block;
+  }
+    /* Glowing text effect with different shades of tomato */
+    #glowTitle {
+      font-size: 1rem;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      text-shadow: 
+        0 0 5px rgba(255, 99, 71, 0.5), /* Light tomato */
+        0 0 10px rgba(255, 99, 71, 0.7), /* Medium tomato */
+        0 0 15px rgba(255, 99, 71, 0.8), /* Bright tomato */
+        0 0 20px rgba(255, 99, 71, 1), /* Strong tomato */
+        0 0 25px rgba(255, 99, 71, 1); /* Deep tomato */
+      animation: glowColorChange 4s infinite alternate, flicker 1.5s infinite alternate;
+    }
+
+    /* Styling for the icon */
+    #glowTitle i {
+      margin-right: 10px;
+      color: #ff6347; /* Tomato color for the icon */
+    }
+
+    /* Glowing text effect on hover */
+    #glowTitle:hover {
+      text-shadow: 
+        0 0 20px rgba(255, 99, 71, 1), 
+        0 0 30px rgba(255, 99, 71, 0.9), 
+        0 0 40px rgba(255, 99, 71, 0.8), 
+        0 0 50px rgba(255, 99, 71, 1);
+      transform: scale(1.1); /* Slightly enlarges the text */
+    }
+
+    /* Light flicker effect */
+    @keyframes flicker {
+      0% {
+        text-shadow: 
+          0 0 5px rgba(255, 99, 71, 0.5), 
+          0 0 10px rgba(255, 99, 71, 0.7), 
+          0 0 15px rgba(255, 99, 71, 0.8);
+      }
+      50% {
+        text-shadow: 
+          0 0 20px rgba(255, 99, 71, 1), 
+          0 0 30px rgba(255, 99, 71, 0.9), 
+          0 0 40px rgba(255, 99, 71, 0.8);
+      }
+      100% {
+        text-shadow: 
+          0 0 5px rgba(255, 99, 71, 0.5), 
+          0 0 10px rgba(255, 99, 71, 0.7), 
+          0 0 15px rgba(255, 99, 71, 0.8);
+      }
+    }
+
+    /* Animation to change the glow color after 4 seconds */
+    @keyframes glowColorChange {
+      0% {
+        text-shadow: 
+          0 0 5px rgba(255, 99, 71, 0.5), 
+          0 0 10px rgba(255, 99, 71, 0.7), 
+          0 0 15px rgba(255, 99, 71, 0.8),
+          0 0 20px rgba(255, 99, 71, 1),
+          0 0 25px rgba(255, 99, 71, 1);
+        color: #fff;
+      }
+      50% {
+        text-shadow: 
+          0 0 5px rgba(255, 165, 0, 0.5), /* Orange glow */
+          0 0 10px rgba(255, 165, 0, 0.7), 
+          0 0 15px rgba(255, 165, 0, 0.8),
+          0 0 20px rgba(255, 165, 0, 1),
+          0 0 25px rgba(255, 165, 0, 1); /* Strong orange glow */
+        color: #ff7f00; /* Change text color to orange */
+      }
+      100% {
+        text-shadow: 
+          0 0 5px rgba(0, 255, 0, 0.5), /* Green glow */
+          0 0 10px rgba(0, 255, 0, 0.7), 
+          0 0 15px rgba(0, 255, 0, 0.8),
+          0 0 20px rgba(0, 255, 0, 1),
+          0 0 25px rgba(0, 255, 0, 1); /* Strong green glow */
+        color: #00ff00; /* Change text color to green */
+      }
+    }
+    /* projects */
+  #projects {
+    padding: 40px 20px;
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    margin: 20px;
+  }
+
+  #projects h2 {
+    font-size: 2.5rem;
+    color: tomato;
+    margin-bottom: 30px;
+  }
+
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .project-card {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .project-card h3 {
+    font-size: 1.8rem;
+    color: tomato;
+  }
+
+  .project-card p {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin: 15px 0;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    color: tomato;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+
+  .project-link:hover {
+    background-color: tomato;
+    color: #fff;
+  }
+
+  .project-link i {
+    margin-right: 10px;
+  }
+
+    /* Blog Section Styles */
+#blog {
+  background-color: transparent;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+#blog h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: tomato;
+  margin-bottom: 30px;
+}
+
+.blog-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.blog-item {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.blog-item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.blog-item h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: tomato;
+}
+
+.blog-item p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.blog-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.blog-item a:hover h3 {
+  color: #f4a261;
+}
+
+/* Skills Section Styling */
+#skills {
+  background-color: transparent;
+  color: #fff;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin: 50px 0;
+  text-align: center;
+}
+
+#skills h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: tomato;
+  position: relative;
+  overflow: hidden;
+}
+
+#skills h2::before,
+#skills h2::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  background: tomato;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+#skills h2::before {
+  left: 0;
+  transform: translate(-100%, -50%);
+}
+
+#skills h2::after {
+  right: 0;
+  transform: translate(100%, -50%);
+}
+
+#skills h2:hover::before {
+  transform: translate(0, -50%);
+}
+
+#skills h2:hover::after {
+  transform: translate(0, -50%);
+}
+
+#skills ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+#skills li {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 20px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+#skills li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+#skills li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+#skills li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+#skills li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+#skills li:nth-child(5) {
+  animation-delay: 1s;
+}
+
+#skills li:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+#skills li:nth-child(7) {
+  animation-delay: 1.4s;
+}
+
+#skills li::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: tomato;
+  left: 0;
+  top: 0;
+  transform: scaleY(0);
+  transition: transform 0.4s ease-in-out;
+}
+
+#skills li:hover::before {
+  transform: scaleY(1);
+}
+
+#skills li i p {
+  margin-right: 10px;
+  color: tomato;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+#skills li:hover i {
+  color: #ff6347; /* Slightly lighter tomato */
+}
+
+#skills strong {
+  color: #fff;
+  position: relative;
+}
+
+#skills strong::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: tomato;
+  transition: width 0.3s ease;
+}
+
+#skills li:hover strong::after {
+  width: 100%;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+    /* Basic styling for the video */
+#myVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* Optional additional shading for visual interest */
+#myVideo {
+  box-shadow: 0 4px 15px rgba(255, 99, 71, 0.6); /* Light tomato shadow around the video */
+  border-radius: 10px; /* Rounded corners for the video */
+}
+
+    /* Section Styling */
+#skills {
+  background-color: #ffe4e1; /* Light tomato background */
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(255, 99, 71, 0.2); /* Soft tomato shadow */
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+/* Title Styling */
+#skills h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #d84e47; /* Tomato color for the title */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+#skills h2 i {
+  margin-right: 10px;
+  color: #ff6347; /* Tomato icon color */
+}
+
+/* List Styling */
+#skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+#skills li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin: 15px 0;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+  transition: all 0.3s ease;
+}
+
+#skills li i {
+  font-size: 1.5rem;
+  color: #ff6347; /* Tomato color for icons */
+  margin-right: 15px;
+}
+
+/* Hover Effect */
+#skills li:hover {
+  transform: translateX(5px);
+  color: #8b0000; /* Darker shade of tomato when hovered */
+  cursor: pointer;
+}
+
+#skills li:hover i {
+  color: #ff4500; /* Darker tomato shade for icon hover */
+}
+
+/* Strong Text (Skill Names) */
+#skills strong {
+  font-weight: 600;
+  color: #ff6347; /* Tomato color for skill names */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #skills h2 {
+    font-size: 1.5rem;
+  }
+
+  #skills li {
+    font-size: 1rem;
+  }
+}
+
+/* Section Styling */
+#contact {
+  background-color: #ffe4e1; /* Light tomato background */
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(255, 99, 71, 0.2); /* Soft tomato shadow */
+  max-width: 1000px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* Title Styling */
+#contact h2 {
+  font-size: 2rem;
+  color: #d84e47; /* Tomato color for the title */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+#contact h2 i {
+  margin-right: 10px;
+  color: #ff6347; /* Tomato color for icon */
+}
+
+/* List Styling */
+#contact ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; /* Wrap items to the next line if they overflow */
+  justify-content: space-around; /* Distribute items evenly */
+}
+
+#contact li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin: 15px;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+  transition: all 0.3s ease;
+  max-width: 200px; /* Limit the width of each list item */
+  text-align: left; /* Align the text properly */
+}
+
+#contact li i {
+  font-size: 1.5rem;
+  color: #ff6347; /* Tomato color for icons */
+  margin-right: 10px;
+}
+
+/* Link Styling */
+#contact a {
+  text-decoration: none;
+  color: #ff6347; /* Tomato color for links */
+  transition: color 0.3s ease;
+}
+
+#contact a:hover {
+  color: #8b0000; /* Darker tomato shade for link hover */
+}
+
+/* Hover Effect */
+#contact li:hover {
+  transform: translateY(-5px); /* Slightly raise the item on hover */
+  color: #8b0000; /* Darker shade of tomato when hovered */
+  cursor: pointer;
+}
+
+#contact li:hover i {
+  color: #ff4500; /* Darker tomato shade for icon hover */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #contact h2 {
+    font-size: 1.5rem;
+  }
+
+  #contact li {
+    font-size: 1rem;
+  }
+}
