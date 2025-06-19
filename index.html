@@ -301,35 +301,144 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
-  <main id="mainContent">
-    <!-- Hero Tab -->
-    <section id="hero" class="tab-content active">
-      <h1>Welcome to madeoftech! Let’s learn and innovate</h1>
-      <p>Hello chargie! We are passionate about DevOps, Linux, programming, and crafting efficient solutions through code and automation. Explore our organisation journey and projects.</p>
-      <div class="project-card">
-        <h3><i class="fas fa-tools"></i> DevOps Pipeline</h3>
-        <p>Automated CI/CD pipeline using Jenkins for Dockerized applications.</p>
-       <a href="https://jenkins.madeoftech.net" target="_blank" class="project-link">
-          <i class="fas fa-external-link-alt"></i> Explore codespace
-        </a>
-      </div>
-      <div class="project-card">
-        <h3><i class="fas fa-cloud"></i> Kali Linux in Cloud</h3>
-        <p>Created a virtual environment in the cloud using Docker for hosting, automation and inspecting my online services.</p>
-        <a href="Kali.html" target="_blank" class="project-link">
-          <i class="fas fa-external-link-alt"></i> Explore Kalicloud
-        </a>
-      </div>
-      <div class="project-card">
-        <h3><i class="fas fa-laboratory"></i> Home and Cloud lab</h3>
-        <p>Created and fine-tune my home and cloud lab with the latest security updates and tools.</p>
-        <a href="hyper.html" target="_blank" class="project-link">
-          <i class="fas fa-external-link-alt"></i> Explore lab
-        </a>
-      </div>
-    </section>
+  <!-- Main Content --><main id="mainContent" style="font-family: 'Orbitron', sans-serif; background: url('https://www.transparenttextures.com/patterns/asfalt-light.png'); overflow-x: hidden;">
+  <!-- Hero Tab -->
+  <section id="hero" class="tab-content active" style="text-align: center; padding: 60px 20px; background: linear-gradient(to right, #111, #1f1f1f); color: white; overflow: hidden; position: relative;">
+    <div data-aos="fade-up">
+      <h1 class="typing-text" id="typeWelcome"></h1>
+      <p class="hero-intro">Yo chargie! We're deeply rooted in DevOps, Linux, programming, and automating smarter tech solutions. 🚀 Dive into our journey of innovation.</p>
+    </div>
+    <div class="project-showcase" id="todoListContainer"></div>
+  </section>
+</main><style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
+.typing-text {
+  font-size: 2.5rem;
+  border-right: 2px solid tomato;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+  text-shadow: 0 0 5px #fff, 0 0 10px tomato, 0 0 20px tomato;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.hero-intro {
+  font-size: 1.2rem;
+  margin: 20px auto;
+  max-width: 700px;
+  color: #ddd;
+}
+
+.project-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+  padding-bottom: 200px;
+}
+
+.project-card {
+  background: #1c1c1c;
+  padding: 25px;
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 4px 20px rgba(255, 99, 71, 0.2);
+  min-width: 300px;
+  max-width: 320px;
+}
+
+.project-card:hover {
+  transform: scale(1.03) rotate(-1deg);
+  box-shadow: 0 10px 25px rgba(255, 99, 71, 0.4);
+  background: #2b2b2b;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: tomato;
+  font-weight: bold;
+  text-decoration: underline;
+}
+</style><script>
+const welcomeMsgs = [
+  "Welcome to MadeofTech!",
+  "Let’s learn, build, and innovate.",
+  "Crafting real-world DevOps & AI tools.",
+  "Your next project partner in tech."
+];
+let msgPos = 0;
+function rotateWelcome() {
+  document.getElementById("typeWelcome").innerText = welcomeMsgs[msgPos];
+  msgPos = (msgPos + 1) % welcomeMsgs.length;
+}
+setInterval(rotateWelcome, 5000);
+window.addEventListener("load", rotateWelcome);
+
+const todos = [
+  { icon: "fas fa-robot", title: "AI Chat Assistant", desc: "Integrate an interactive AI assistant per project or page." },
+  { icon: "fas fa-credit-card", title: "MPESA Integration", desc: "Enable online payments and pricing tiers." },
+  { icon: "fas fa-chart-line", title: "Dashboard & Courses", desc: "Student dashboard, course badges, and progress tracking." },
+  { icon: "fas fa-cogs", title: "Custom Scripts Portal", desc: "Allow users to request and download personalized scripts." },
+  { icon: "fas fa-cloud", title: "Cloud Toolkit", desc: "Bundle of tools hosted in the cloud for remote access." },
+  { icon: "fas fa-laptop-code", title: "Online IDE", desc: "Collaborative code editor for pair programming and demos." },
+  { icon: "fas fa-network-wired", title: "Cybersecurity Hub", desc: "Monitor, audit, and demonstrate secure configurations." },
+  { icon: "fas fa-database", title: "Analytics Engine", desc: "Auto-generate reports from site activities and traffic." },
+  { icon: "fas fa-brain", title: "AI Resume Assistant", desc: "Guide users in writing strong resumes using GPT models." },
+  { icon: "fas fa-camera", title: "Media Studio", desc: "A canvas for designing CVs, posters, and reels." },
+  { icon: "fas fa-bug", title: "Bug Tracker", desc: "Interactive system to report and patch bugs." },
+  { icon: "fas fa-tools", title: "Admin Toolkit", desc: "A backend toolkit with full control panel." },
+  { icon: "fas fa-tasks", title: "Freelance Work Board", desc: "List available tasks and micro-jobs for clients." },
+  { icon: "fas fa-server", title: "DevOps Automation", desc: "CI/CD pipelines using Jenkins, Docker, and GitHub Actions." },
+  { icon: "fas fa-code", title: "Fullstack Web Apps", desc: "Responsive frontends with robust Flask or Node.js backends." },
+  { icon: "fas fa-brain", title: "AI Research Toolkit", desc: "Private LLMs and offline inference apps." },
+  { icon: "fas fa-lock", title: "Digital Forensics Kit", desc: "Inspect system images, recover data, and trace incidents." },
+  { icon: "fas fa-pencil-alt", title: "CV Writing Hub", desc: "Professional resume/CV building with design options." },
+  { icon: "fas fa-globe", title: "Open Web Scraper", desc: "Custom scrapers for PDFs, links, and market intelligence." }
+];
+
+function injectTodoCards() {
+  const container = document.getElementById("todoListContainer");
+  let loaded = 0;
+  function loadMore() {
+    for (let i = 0; i < 3 && loaded < todos.length; i++, loaded++) {
+      const todo = todos[loaded];
+      const card = document.createElement("div");
+      card.className = "project-card";
+      card.setAttribute("data-aos", "zoom-in");
+      card.setAttribute("data-aos-delay", `${loaded * 100}`);
+      card.setAttribute("onclick", `openModal('${todo.title}', '${todo.desc}', '#')`);
+      card.innerHTML = `
+        <h3><i class='${todo.icon}'></i> ${todo.title}</h3>
+        <p>${todo.desc}</p>
+        <span class='project-link'><i class='fas fa-hourglass'></i> Coming Soon</span>
+      `;
+      container.appendChild(card);
+    }
+  }
+  window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+      loadMore();
+    }
+  });
+  loadMore();
+}
+window.addEventListener("load", injectTodoCards);
+</script>
     <!-- Projects Tab -->
     <!-- Tag Filters --><div class="filter-controls" data-aos="fade-up">
   <input type="text" id="projectSearch" onkeyup="searchProjects()" placeholder="Search projects..." class="search-bar">
