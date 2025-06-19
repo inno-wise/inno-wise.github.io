@@ -866,6 +866,65 @@ window.addEventListener('load', () => {
       }
     });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+function toggleNav(action) {
+  const nav = document.querySelector('nav');
+  const items = nav.querySelectorAll('li, h1, .nav-links');
+  const minimizeBtn = document.getElementById('minimizeBtn');
+  const expandBtn = document.getElementById('expandBtn');
+
+  if (action === 'minimize') {
+    gsap.to(nav, { width: 60, duration: 0.3 });
+    items.forEach(el => el.style.display = 'none');
+    minimizeBtn.style.display = 'none';
+    expandBtn.style.display = 'inline-block';
+    localStorage.setItem('navState', 'minimized');
+  }
+
+  if (action === 'expand') {
+    gsap.to(nav, { width: 250, duration: 0.3 });
+    items.forEach(el => el.style.display = '');
+    expandBtn.style.display = 'none';
+    minimizeBtn.style.display = 'inline-block';
+    localStorage.setItem('navState', 'expanded');
+  }
+
+  if (action === 'close') {
+    gsap.to(nav, { opacity: 0, duration: 0.3, onComplete: () => {
+      nav.style.display = 'none';
+      localStorage.setItem('navState', 'closed');
+    }});
+  }
+}
+
+// Load saved nav state
+window.addEventListener('DOMContentLoaded', () => {
+  const state = localStorage.getItem('navState');
+  const nav = document.querySelector('nav');
+  const items = nav.querySelectorAll('li, h1, .nav-links');
+  const minimizeBtn = document.getElementById('minimizeBtn');
+  const expandBtn = document.getElementById('expandBtn');
+
+  if (state === 'minimized') {
+    nav.style.width = '60px';
+    items.forEach(el => el.style.display = 'none');
+    minimizeBtn.style.display = 'none';
+    expandBtn.style.display = 'inline-block';
+  }
+
+  if (state === 'closed') {
+    nav.style.display = 'none';
+  }
+
+  if (state === 'expanded' || !state) {
+    nav.style.width = '250px';
+    items.forEach(el => el.style.display = '');
+    minimizeBtn.style.display = 'inline-block';
+    expandBtn.style.display = 'none';
+  }
+});
+</script>
 </body>
 
   </html>
