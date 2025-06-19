@@ -29,6 +29,13 @@
   <meta name="twitter:description" content="Explore the portfolio of Innocent Mwea showcasing skills in DevOps, Cybersecurity, and Hardware Engineering." />
   <meta name="twitter:image" content="https://inno-wise.github.io/mydiary/img/mot.png" />
 
+  <!-- AOS (already included likely) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <!-- Adsense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3761532614478561" crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-3761532614478561" />
@@ -278,6 +285,41 @@
     .modal-content a:hover {
       text-decoration: underline;
     }
+
+    .sidenav-controls button {
+  background: transparent;
+  border: none;
+  color: tomato;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sidenav-controls button:hover {
+  transform: scale(1.2);
+  color: #ff6347;
+    }
+
+  .sidenav-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+}
+
+.sidenav-controls button {
+  background: transparent;
+  border: none;
+  color: tomato;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sidenav-controls button:hover {
+  transform: scale(1.2);
+  color: #ff6347;
+}
   </style>
 </head>
 
@@ -287,6 +329,17 @@
 
   <!-- Side Navigation -->
   <nav id="sideNav">
+    <div class="sidenav-controls" data-aos="fade-down">
+  <button onclick="toggleNav('minimize')" id="minimizeBtn" title="Minimize sidebar">
+    <i class="fas fa-compress"></i>
+  </button>
+  <button onclick="toggleNav('expand')" id="expandBtn" title="Expand sidebar" style="display:none;">
+    <i class="fas fa-expand"></i>
+  </button>
+  <button onclick="toggleNav('close')" id="closeBtn" title="Close sidebar">
+    <i class="fas fa-times-circle"></i>
+  </button>
+    </div>
     <h1><i class="fas fa-code"></i> madeoftech</h1>
     <ul>
       <li><a href="#" class="nav-link active" data-tab="hero"><i class="fas fa-home"></i> Home</a></li>
