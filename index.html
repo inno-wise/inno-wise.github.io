@@ -296,6 +296,7 @@
       <li><a href="#" class="nav-link" data-tab="contact"><i class="fas fa-envelope"></i> Contact</a></li>
       
       <li><a href="#" class="nav-link" data-tab="services"><i class="fas fa-envelope"></i>Jaydaplug Services</a></li>
+     <li><a href="#" class="nav-link" data-tab="services"><i class="fas fa-envelope"></i>Jaydaplug Services</a></li>
       <li><button id="openModalBtn"><i class="fas fa-download"></i> Download CV</button></li>
     </ul>
   </nav>
@@ -330,53 +331,136 @@
     </section>
 
     <!-- Projects Tab -->
-    <section id="projects" class="tab-content">
-      <h2><i class="fas fa-laptop-code"></i> My Projects</h2>
-      <div class="project-list">
-        <div class="project-card">
-          <h3><i class="fas fa-cogs"></i> Garage Web</h3>
-          <p>A web application for managing garage operations.</p>
-          <a href="https://inno-wise.github.io/nut50/" target="_blank" class="project-link">
-            <i class="fas fa-external-link-alt"></i> Visit Project
-          </a>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-music"></i> Music Web</h3>
-          <p>A music streaming platform web app.</p>
-          <a href="https://inno-wise.github.io/effective-octo-palm-tree/" target="_blank" class="project-link">
-            <i class="fas fa-external-link-alt"></i> Visit Project
-          </a>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-shield-alt"></i> Private AI</h3>
-          <p>A private AI LLM launched locally to help with research. Fine-tuned AI on LAN for research and learning.</p>
-          <a href="ai.html" target="_blank" class="project-link">
-            <i class="fas fa-external-link-alt"></i> Explore my Model
-          </a>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-school"></i> School System</h3>
-          <p>School management software built using Python.</p>
-          <a href="https://edu.madeoftech.net" target="_blank" class="project-link">
-            <i class="fas fa-external-link-alt"></i> Visit Project
-          </a>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-hospital"></i> Cloud Jenkins for CI/CD pipelines</h3>
-          <p>Set up my cloud Jenkins for automating projects and enhancing productivity.</p>
-          <a href="devops.html" target="_blank" class="project-link">
-            <i class="fas fa-external-link-alt"></i> Visit Project
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- Tag Filters --><div class="filter-controls" data-aos="fade-up">
+  <input type="text" id="projectSearch" onkeyup="searchProjects()" placeholder="Search projects..." class="search-bar">
+  <div class="tag-filters">
+    <button class="filter-btn active" onclick="filterByTag('all')">All</button>
+    <button class="filter-btn" onclick="filterByTag('devops')">DevOps</button>
+    <button class="filter-btn" onclick="filterByTag('web')">Web</button>
+    <button class="filter-btn" onclick="filterByTag('ai')">AI</button>
+    <button class="filter-btn" onclick="filterByTag('school')">School</button>
+  </div>
+</div><section id="live-projects" class="tab-content">
+  <h2 data-aos="fade-up"><i class="fas fa-project-diagram"></i> Live Projects</h2>
+  <div class="projects-grid" id="projectGrid"></div>
+</section><!-- Modal --><div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDescription"></p>
+    <a id="modalLink" href="#" target="_blank" class="modal-btn"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+    <div id="chat-container" style="margin-top: 20px;">
+      <textarea id="chatInput" placeholder="Ask something about this project..." style="width: 100%; height: 50px; padding: 10px;"></textarea>
+      <button onclick="sendAIMessage()" class="modal-btn"><i class="fas fa-robot"></i> Ask AI</button>
+      <div id="aiResponse" style="margin-top: 15px; color: #ccc;"></div>
+    </div>
+  </div>
+</div><style>
+  .tag-filters {
+    margin-top: 10px;
+  }
+  .modal-btn i { margin-right: 5px; }
+  .status-badge.online { background: limegreen; color: #000; padding: 2px 6px; border-radius: 6px; font-size: 0.8em; margin-left: 6px; }
+  .status-badge.offline { background: crimson; color: #fff; padding: 2px 6px; border-radius: 6px; font-size: 0.8em; margin-left: 6px; }
+  .project-card {
+    cursor: pointer;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+    background: #1f1f1f;
+  }
+  .project-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px tomato;
+  }
+</style><script>
+const projects = [
+  { title: "Garage Web", desc: "Manage car repair operations.", link: "https://inno-wise.github.io/nut50/", tag: "web", status: "online" },
+  { title: "Music Web", desc: "Music streaming app.", link: "https://inno-wise.github.io/effective-octo-palm-tree/", tag: "web", status: "online" },
+  { title: "Private AI", desc: "Local LLM for research.", link: "ai.html", tag: "ai", status: "offline" },
+  { title: "School System", desc: "Academic management platform.", link: "https://www.madeoftech.net/Madeoftech", tag: "school", status: "online" },
+  { title: "Cloud Jenkins", desc: "CI/CD pipeline.", link: "devops.html", tag: "devops", status: "online" },
+  { title: "React Web App", desc: "React platform for learning.", link: "https://www.madeoftech.net/Madeoftech", tag: "web", status: "online" },
+  { title: "DevSecOps Lab", desc: "Security in DevOps workflows.", link: "https://www.madeoftech.net/Madeoftech", tag: "devops", status: "online" },
+  { title: "PDF Tools Suite", desc: "Convert, compress and manage PDFs.", link: "https://inno-wise.github.io/mydiary/blogs/newspaper.html", tag: "web", status: "online" },
+  { title: "Database Hub", desc: "Database tutorials and optimization.", link: "https://inno-wise.github.io/mydiary/blogs/database.html", tag: "web", status: "online" },
+  { title: "Hardware Security Zone", desc: "Best practices for hardware security.", link: "https://inno-wise.github.io/mydiary/blogs/hardware.html", tag: "ai", status: "online" },
+  { title: "Docker Browser Lab", desc: "Browser-in-Docker for private research.", link: "http://18.209.18.87:3000/", tag: "ai", status: "online" },
+  { title: "CLI Linux Blogs", desc: "In-depth CLI command articles.", link: "https://inno-wise.github.io/mydiary/blogs/linux.html", tag: "web", status: "online" },
+  { title: "Grey Hat Diaries", desc: "Security practices and insights.", link: "https://inno-wise.github.io/mydiary/blogs/blackhat.html", tag: "ai", status: "online" },
+  { title: "Web Security Watch", desc: "Web security trends.", link: "https://inno-wise.github.io/mydiary/blogs/websecurity.html", tag: "web", status: "online" },
+  { title: "DevOps & AI Stack", desc: "DevOps + ML development strategies.", link: "https://inno-wise.github.io/mydiary/blogs/pythondevops.html", tag: "devops", status: "online" }
+];
 
+function loadProjects() {
+  const grid = document.getElementById('projectGrid');
+  grid.innerHTML = '';
+  projects.forEach(p => {
+    const card = document.createElement('div');
+    card.className = `project-card ${p.status} ${p.tag}`;
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('onclick', `openModal('${p.title}', '${p.desc}', '${p.link}')`);
+    card.innerHTML = `<h3><i class='fas fa-code'></i> ${p.title} <span class='status-badge ${p.status}'>${p.status.charAt(0).toUpperCase() + p.status.slice(1)}</span></h3>`;
+    grid.appendChild(card);
+  });
+}
+
+function filterByTag(tag) {
+  const all = document.querySelectorAll('.project-card');
+  all.forEach(card => {
+    card.style.display = tag === 'all' || card.classList.contains(tag) ? 'block' : 'none';
+  });
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function searchProjects() {
+  const input = document.getElementById('projectSearch').value.toLowerCase();
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input) ? 'block' : 'none';
+  });
+}
+
+function openModal(title, desc, link) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalDescription').innerText = desc;
+  document.getElementById('modalLink').href = link;
+  document.getElementById('modal').style.display = 'block';
+  document.getElementById('aiResponse').innerHTML = '';
+  document.getElementById('chatInput').value = '';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+function sendAIMessage() {
+  const input = document.getElementById('chatInput').value.trim();
+  const responseBox = document.getElementById('aiResponse');
+  if (!input) return;
+  responseBox.innerHTML = "<i class='fas fa-spinner fa-spin'></i> Thinking...";
+  setTimeout(() => {
+    responseBox.innerHTML = `🤖 This project likely involves ${input.includes('deploy') ? 'automation & CI/CD' : 'complex tech'} based on your question.`;
+  }, 1000);
+}
+
+window.addEventListener('load', () => {
+  loadProjects();
+  setInterval(() => {
+    console.log('🔄 Auto-refresh projects');
+    loadProjects();
+  }, 60000);
+});
+</script>
     <!-- Blog Tab -->
     <section id="blog" class="tab-content">
       <h2><i class="fas fa-blog"></i> Blog</h2>
       <div class="blog-links">
         <div class="blog-item">
-          <a href="https://3.81.16.172:443" target="_blank">
+          <a href="https:www.madeoftech.net/Madeoftech" target="_blank">
             <h3>All Blogs</h3>
             <p>Explore all my blog posts.</p>
           </a>
@@ -577,6 +661,8 @@
     text-decoration: none;
   }
   </style>
+
+  <!-- projects-->
   <!-- Modal -->
   <div id="cvModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
     <div class="modal-content">
