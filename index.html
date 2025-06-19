@@ -294,6 +294,8 @@
       <li><a href="#" class="nav-link" data-tab="blog"><i class="fas fa-blog"></i> Blog</a></li>
       <li><a href="#" class="nav-link" data-tab="skills"><i class="fas fa-brain"></i> Skills</a></li>
       <li><a href="#" class="nav-link" data-tab="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      
+      <li><a href="#" class="nav-link" data-tab="services"><i class="fas fa-envelope"></i>Jaydaplug Services</a></li>
       <li><button id="openModalBtn"><i class="fas fa-download"></i> Download CV</button></li>
     </ul>
   </nav>
@@ -472,7 +474,109 @@
       </form>
     </section>
   </main>
-
+<!-- services -->
+  <section id="services" class="tab-content">
+  <h2><i class="fas fa-concierge-bell"></i> My Services</h2>
+  <div class="service-grid">
+    <div class="service-card">
+      <h3><i class="fas fa-code"></i> Web Development & Programming</h3>
+      <p>Custom websites, web apps, and full-stack solutions tailored to your needs.</p>
+      <p><strong>Price:</strong> Ksh 3,000 - 60,000</p>
+    </div>
+    <div class="service-card">
+      <h3><i class="fas fa-desktop"></i> Software Development</h3>
+      <p>Standalone and cross-platform software for all major operating systems.</p>
+      <p><strong>Price:</strong> Ksh 4,000 - 70,000</p>
+    </div>
+    <div class="service-card">
+      <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+      <p>Penetration testing, security hardening, and data protection services.</p>
+      <p><strong>Price:</strong> Ksh 5,000 - 80,000</p>
+    </div>
+    <div class="service-card">
+      <h3><i class="fas fa-network-wired"></i> DevOps</h3>
+      <p>CI/CD pipelines, Docker, Jenkins, and infrastructure automation.</p>
+      <p><strong>Price:</strong> Ksh 4,000 - 50,000</p>
+    </div>
+    <div class="service-card">
+      <h3><i class="fas fa-file-alt"></i> CV Writing</h3>
+      <p>Professional CVs and resumes tailored to your industry and career path.</p>
+      <p><strong>Price:</strong> Ksh 500 - 2,500</p>
+    </div>
+    <div class="service-card">
+      <h3><i class="fas fa-paint-brush"></i> Canva Designs & Posters</h3>
+      <p>Eye-catching designs for personal and business use.</p>
+      <p><strong>Price:</strong> Ksh 300 - 5,000</p>
+    </div>
+    <div class="service-card">
+      <h3><i class="fas fa-terminal"></i> Custom Scripts & Tools</h3>
+      <p>Automation, scrapers, and productivity tools built to your requirements.</p>
+      <p><strong>Price:</strong> Ksh 3,000 - 20,000</p>
+    </div>
+    <div class="service-card">
+      <h3><i class="fas fa-user-secret"></i> Computer Forensics</h3>
+      <p>Digital investigations and forensic analysis for security cases.</p>
+      <p><strong>Price:</strong> Ksh 5,000 - 50,000</p>
+    </div>
+    <div class="service-card">
+      <h3><i class="fas fa-robot"></i> AI Development</h3>
+      <p>Custom LLM models, ML projects, and intelligent systems.</p>
+      <p><strong>Price:</strong> Ksh 10,000 - 80,000</p>
+    </div>
+  </div>
+</section><!-- Lazy Loader --><div id="loader" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;background:#111;display:flex;align-items:center;justify-content:center;">
+  <div class="spinner">
+    <i class="fas fa-spinner fa-spin fa-3x" style="color: tomato;"></i>
+  </div>
+</div><script>
+  window.addEventListener('load', () => {
+    document.getElementById('loader').style.display = 'none';
+  });
+</script><!-- Contact Section (Appended or Enhanced) --><section id="contact" class="tab-content">
+  <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+  <ul class="contact-list">
+    <li><i class="fas fa-envelope"></i> <a href="mailto:innocent@madeoftech.net">innocent@madeoftech.net</a></li>
+    <li><i class="fas fa-envelope"></i> <a href="mailto:edu@madeoftech.net">edu@madeoftech.net</a></li>
+    <li><i class="fas fa-phone"></i> <a href="tel:+254702250123">+254 702 250123</a></li>
+    <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+    <li><i class="fab fa-x-twitter"></i> <a href="https://www.x.com" target="_blank">X (Twitter)</a></li>
+    <li><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/@madeofTechz" target="_blank">YouTube</a></li>
+    <li><i class="fab fa-tiktok"></i> <a href="https://www.tiktok.com" target="_blank">TikTok</a></li>
+    <li><i class="fab fa-whatsapp"></i> <a href="https://www.whatsapp.com" target="_blank">WhatsApp</a></li>
+  </ul>
+</section><!-- Animations (via CSS/JS or optional AOS) --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000 });
+</script>
+<style>
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .service-card {
+    background: #1f1f1f;
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+  }
+  .service-card:hover {
+    transform: scale(1.03);
+    background-color: #2b2b2b;
+  }
+  .contact-list li {
+    margin: 10px 0;
+    list-style: none;
+    color: #fff;
+  }
+  .contact-list a {
+    color: tomato;
+    text-decoration: none;
+  }
+  </style>
   <!-- Modal -->
   <div id="cvModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
     <div class="modal-content">
